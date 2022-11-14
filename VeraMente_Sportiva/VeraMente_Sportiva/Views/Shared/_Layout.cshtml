@@ -48,7 +48,14 @@
         <div class="menu">
             <div id="sectionHome" class="cursorClick section hoverOrange" onclick="openSection('Home')">Home</div>
             <div id="sectionNews" class="cursorClick section hoverOrange" onclick="openSection('News')">News</div>
-            <div class="cursorClick section hoverOrange">Campionati</div>
+            <div id="sectionCampionati" class="cursorClick section hoverOrange itemWithSubmenu">
+                Campionati
+                <div id="submenuCampionati" class="submenu" style="display: none;">
+                    <div class="submenuItem" onclick="openSection('Teams/Index?championship=1DM')">1° Div. Maschile</div>
+                    <div class="submenuItem">PGS Femminile</div>
+                    <div class="submenuItem" style="border-bottom: 0;">Minivolley</div>
+                </div>
+            </div>
             <div class="cursorClick section hoverOrange">Società</div>
             <div class="cursorClick section hoverOrange">Sponsor</div>
             <div id="sectionContatti" class="cursorClick section hoverOrange" onclick="openSection('Home/Contatti')">Contatti</div>
@@ -175,7 +182,38 @@
             if (currentTheme === "dark") {
                 $("#checkboxTheme").prop("checked", true);
             }
+
+            $("#sectionCampionati").mouseover(function () {
+                checkSubmenu('Campionati', 1);
+            });
+
+            $("#sectionCampionati").mouseout(function () {
+                checkSubmenu('Campionati', 0);
+            });
+
+            $("#submenuCampionati").mouseover(function () {
+                checkSubmenu('Campionati', 1)
+            });
+
+            $("#submenuCampionati").mouseout(function () {
+                checkSubmenu('Campionati', 0)
+            });
         });
+
+        var subMenu = "";
+        function checkSubmenu(section, isEnter) {
+            if (isEnter == 1) {
+                $("#submenu" + section).show();
+                subMenu = section;
+            } else {
+                subMenu = "";
+                setTimeout(function () {
+                    if (subMenu != section) {
+                        $("#submenu" + section).hide();
+                    }
+                }, 500);
+            }
+        }
 
         function changeMode() {
             var currentTheme = document.documentElement.getAttribute("data-theme");

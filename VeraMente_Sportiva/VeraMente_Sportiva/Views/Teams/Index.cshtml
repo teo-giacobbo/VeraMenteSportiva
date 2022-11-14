@@ -1,0 +1,61 @@
+﻿<script>
+
+    $(document).ready(function () {
+        focusSection("Campionati");
+    });
+
+</script>
+
+<style>
+    .titleTeam {
+        width: 100%;
+        text-align: center;
+    }
+
+    .sectionsTeam {
+        width: 100%;
+        margin-top: 1vmin;
+        border-bottom: 1px solid var(--text-color);
+        padding: 10px 0;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .sectionTeamSelected {
+        color: var(--orange);
+        background-color: var(--text-color);
+        padding: 2px 15px;
+        border-radius: 10px;
+    }
+
+    .mainInfoTeam {
+        width: 100%;
+    }
+</style>
+
+<div class="titleTeam sizeBig weight900">
+    @if (ViewBag.Championship == "1DM")
+    {
+        <span>Prima Divisione Maschile</span>
+    }
+    else if (ViewBag.Championship == "PGSF")
+    {
+        <span>PGS Libera Femminile</span>
+    }
+    else if (ViewBag.Championship == "MV")
+    {
+        <span>Mini Volley</span>
+    }
+</div>
+
+<div class="sectionsTeam">
+    <div class="sectionTeam cursorClick sizeMediumSmall weight300 hoverOrange sectionTeamSelected">Squadra</div>
+    <div class="sectionTeam cursorClick sizeMediumSmall weight300 hoverOrange">Calendario</div>
+    <div class="sectionTeam cursorClick sizeMediumSmall weight300 hoverOrange">Classifica</div>
+</div>
+
+<div class="mainInfoTeam">
+    @Html.Action("Team", "Teams", new { championship = ViewBag.Championship })
+</div>
