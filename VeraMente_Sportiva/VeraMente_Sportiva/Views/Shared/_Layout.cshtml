@@ -56,7 +56,14 @@
                     <div class="submenuItem" style="border-bottom: 0;">Minivolley</div>
                 </div>
             </div>
-            <div class="cursorClick section hoverOrange">Società</div>
+            <div id="sectionSocieta" class="cursorClick section hoverOrange itemWithSubmenu">
+                Società
+                <div id="submenuSocieta" class="submenu" style="display: none;">
+                    <div class="submenuItem">Chi siamo</div>
+                    <div class="submenuItem">Consiglio direttivo</div>
+                    <div class="submenuItem" style="border-bottom: 0;">Contatti</div>
+                </div>
+            </div>
             <div class="cursorClick section hoverOrange">Sponsor</div>
             <div id="sectionContatti" class="cursorClick section hoverOrange" onclick="openSection('Home/Contatti')">Contatti</div>
         </div>
@@ -91,7 +98,7 @@
                 <i class="bi bi-moon"></i>
             </div>
 
-            <div class="login cursorClick">
+            <div class="login cursorClick hoverOrange">
                 <div class="socialIcon">
                     <i class="bi bi-door-open sizeMedium"></i>
                 </div>
@@ -198,6 +205,22 @@
             $("#submenuCampionati").mouseout(function () {
                 checkSubmenu('Campionati', 0)
             });
+
+            $("#sectionSocieta").mouseover(function () {
+                checkSubmenu('Societa', 1);
+            });
+
+            $("#sectionSocieta").mouseout(function () {
+                checkSubmenu('Societa', 0);
+            });
+
+            $("#submenuSocieta").mouseover(function () {
+                checkSubmenu('Societa', 1)
+            });
+
+            $("#submenuSocieta").mouseout(function () {
+                checkSubmenu('Societa', 0)
+            });
         });
 
         var subMenu = "";
@@ -246,7 +269,7 @@
         }
 
         function openMap(link) {
-            window.open(link, '_blank'); 
+            window.open(link, '_blank');
         }
     </script>
 </body>

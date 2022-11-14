@@ -18,5 +18,15 @@ namespace VeraMente_Sportiva.Controllers
         {
             return PartialView();
         }
+
+        public ActionResult Schedule(string championship)
+        {
+            return PartialView();
+        }
+
+        public ActionResult Standing(string championship)
+        {
+            return PartialView();
+        }
     }
 }

@@ -2,7 +2,17 @@
 
     $(document).ready(function () {
         focusSection("Campionati");
+        attivaLoading();
     });
+
+    function openSectionTeams(section) {
+        attivaLoading();
+        $(".sectionTeams").removeClass("sectionTeamSelected");
+        $("#sectionTeams" + section).addClass("sectionTeamSelected");
+
+        $("#mainInfoTeam").html("");
+        $("#mainInfoTeam").load("../Teams/" + section + "?championship=" + "@ViewBag.Championship");
+    }
 
 </script>
 
@@ -14,25 +24,28 @@
 
     .sectionsTeam {
         width: 100%;
-        margin-top: 1vmin;
+        margin-top: 2vmin;
         border-bottom: 1px solid var(--text-color);
-        padding: 10px 0;
+        /* padding: 10px 0; */
         display: flex;
         flex-direction: row;
-        justify-content: space-around;
-        align-items: center;
+        justify-content: space-evenly;
+        /* align-items: center; */
     }
 
     .sectionTeamSelected {
-        color: var(--orange);
+        color: var(--bg-color);
         background-color: var(--text-color);
-        padding: 2px 15px;
-        border-radius: 10px;
+        padding: 5px 15px;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
     }
 
     .mainInfoTeam {
         width: 100%;
     }
+
+
 </style>
 
 <div class="titleTeam sizeBig weight900">
@@ -51,11 +64,11 @@
 </div>
 
 <div class="sectionsTeam">
-    <div class="sectionTeam cursorClick sizeMediumSmall weight300 hoverOrange sectionTeamSelected">Squadra</div>
-    <div class="sectionTeam cursorClick sizeMediumSmall weight300 hoverOrange">Calendario</div>
-    <div class="sectionTeam cursorClick sizeMediumSmall weight300 hoverOrange">Classifica</div>
+    <div id="sectionTeamsTeam" class="sectionTeams cursorClick sizeMediumSmall weight300 hoverOrange sectionTeamSelected" onclick="openSectionTeams('Team')">Squadra</div>
+    <div id="sectionTeamsSchedule" class="sectionTeams cursorClick sizeMediumSmall weight300 hoverOrange" onclick="openSectionTeams('Schedule')">Calendario</div>
+    <div id="sectionTeamsStanding" class="sectionTeams cursorClick sizeMediumSmall weight300 hoverOrange" onclick="openSectionTeams('Standing')">Classifica</div>
 </div>
 
-<div class="mainInfoTeam">
+<div id="mainInfoTeam" class="mainInfoTeam">
     @Html.Action("Team", "Teams", new { championship = ViewBag.Championship })
 </div>
