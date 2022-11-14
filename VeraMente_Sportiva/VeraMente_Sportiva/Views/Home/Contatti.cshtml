@@ -1,0 +1,225 @@
+﻿
+<script>
+
+    $(document).ready(function () {
+        focusSection("Contatti");
+    });
+
+</script>
+
+<style>
+    .titleContacts {
+        width: 100%;
+        text-align: center;
+    }
+
+    .containerContacts {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+    }
+
+    .leftContacts {
+        width: 50%;
+        border-right: 1px solid var(--text-color);
+        margin: 2vmin 0;
+        padding-right: 5vmin;
+    }
+
+    .rightContacts {
+        width: 50%;
+        margin: 2vmin 0;
+        padding-left: 5vmin;
+    }
+
+    .singleContact {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        margin-bottom: 5vmin;
+    }
+
+    .nameContact {
+        text-decoration: underline;
+        margin-bottom: 1vmin;
+    }
+
+    .infoContact {
+        width: 80%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-left: 20%;
+    }
+
+    .floatingFormContact {
+        width: 100%;
+        margin: 2vmin 0;
+    }
+
+    .floatingFormField {
+        border-radius: 5px;
+        font-size: 16px;
+        height: 45px !important;
+        color: var(--dark) !important;
+    }
+
+    .floatingFormTextArea {
+        border-radius: 5px;
+        font-size: 16px;
+        resize: none;
+        color: var(--dark) !important;
+    }
+
+        .floatingFormField:focus, .floatingFormTextArea:focus {
+            color: var(--dark) !important;
+            background-color: var(--light) !important;
+            border-color: var(--orange) !important;
+            outline: 0;
+            box-shadow: 0 0 0 0.25rem rgb(222 118 27 / 25%) !important;
+        }
+
+    .labelFormField {
+        font-size: 16px;
+        font-weight: 400;
+        color: var(--dark) !important;
+    }
+
+    .form-floating > .form-control:focus ~ label {
+        opacity: .75 !important;
+        transform: scale(.70) translateY(-0.5rem) translateX(0.15rem);
+    }
+
+    .form-floating > .form-control:not(:placeholder-shown) ~ label, .form-floating > .form-select ~ label {
+        opacity: .75 !important;
+        transform: scale(.70) translateY(-0.5rem) translateX(0.15rem) !important;
+    }
+
+    .endingForm {
+        margin-top: 4vmin;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+</style>
+
+<div class="titleContacts sizeBig weight900">
+    Contatti
+</div>
+
+<div class="containerContacts">
+    <div class="leftContacts">
+        <div class="singleContact">
+            <div class="nameContact sizeMediumSmall">Presidente</div>
+            <div class="infoContact">
+                <div class="sizeMedium weight600">Michele Fignelli</div>
+                <div class="sizeMedium weight300">349 4949491</div>
+            </div>
+            <div class="infoContact">
+                <div></div>
+                <div class="sizeMedium weight300 cursorClick">
+                    <a class="hoverOrange" href="mailto:presidente@veramentesportiva.it" target="_blank" title="Email: presidente@veramentesportiva.it">
+                        presidente@veramentesportiva.it
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="singleContact">
+            <div class="nameContact sizeMediumSmall">Vicepresidente</div>
+            <div class="infoContact">
+                <div class="sizeMedium weight600">Gaia Bernasconi</div>
+                <div class="sizeMedium weight300">349 4949492</div>
+            </div>
+            <div class="infoContact">
+                <div></div>
+                <div class="sizeMedium weight300 cursorClick">
+                    <a class="hoverOrange" href="mailto:vicepresidente@veramentesportiva.it" target="_blank" title="Email: vicepresidente@veramentesportiva.it">
+                        vicepresidente@veramentesportiva.it
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="singleContact">
+            <div class="nameContact sizeMediumSmall">Direttore tecnico</div>
+            <div class="infoContact">
+                <div class="sizeMedium weight600">Angelo Battaglia</div>
+                <div class="sizeMedium weight300">349 4949493</div>
+            </div>
+            <div class="infoContact">
+                <div></div>
+                <div class="sizeMedium weight300 cursorClick">
+                    <a class="hoverOrange" href="mailto:dt@veramentesportiva.it" target="_blank" title="Email: dt@veramentesportiva.it">
+                        dt@veramentesportiva.it
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="singleContact">
+            <div class="nameContact sizeMediumSmall">Gestione gare</div>
+            <div class="infoContact">
+                <div class="sizeMedium weight600">Teo Giacobbo</div>
+                <div class="sizeMedium weight300">349 4949494</div>
+            </div>
+            <div class="infoContact">
+                <div></div>
+                <div class="sizeMedium weight300 cursorClick">
+                    <a class="hoverOrange" href="mailto:gestionegare@veramentesportiva.it" target="_blank" title="Email: gestionegare@veramentesportiva.it">
+                        gestionegare@veramentesportiva.it
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="singleContact">
+            <div class="nameContact sizeMediumSmall">Info e segreteria</div>
+            <div class="infoContact">
+                <div class="sizeMedium weight600">Info e segreteria</div>
+                <div class="sizeMedium weight300"></div>
+            </div>
+            <div class="infoContact">
+                <div></div>
+                <div class="sizeMedium weight300 cursorClick">
+                    <a class="hoverOrange" href="mailto:info@veramentesportiva.it" target="_blank" title="Email: info@veramentesportiva.it">
+                        info@veramentesportiva.it
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="rightContacts">
+        <div class="sizeMedium weight600">
+            Vuoi inviare una comunicazione direttamente da questa pagina? <br />
+            Compila il form qui sotto.
+        </div>
+
+        <div class="containerFormContact">
+            <div class="form-floating floatingFormContact">
+                <input id="nameForm" type="text" class="form-control floatingFormField" placeholder="Oggetto">
+                <label for="nameForm" class="labelFormField">Nominativo *</label>
+            </div>
+            <div class="form-floating floatingFormContact">
+                <input id="emailForm" type="text" class="form-control floatingFormField" placeholder="nome@esempio.com">
+                <label for="emailForm" class="labelFormField">Email a cui poterti contattare *</label>
+            </div>
+            <div class="form-floating floatingFormContact">
+                <input id="phoneForm" type="text" class="form-control floatingFormField" placeholder="Telefono">
+                <label for="phoneForm" class="labelFormField">Telefono a cui poterti contattare (opzionale)</label>
+            </div>
+
+            <textarea class="form-control floatingFormTextArea" rows="15" placeholder="Chiedi pure qualsiasi info desideri. Ti risponderemo quanto prima!"></textarea>
+
+            <div class="endingForm">
+                <div class="sizeSmallNormal weight600">* campi obbligatori</div>
+                <div class="primaryButton">INVIA</div>
+            </div>
+        </div>
+    </div>
+</div>

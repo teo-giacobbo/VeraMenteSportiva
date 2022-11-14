@@ -1,0 +1,179 @@
+﻿
+<script>
+
+    $(document).ready(function () {
+        focusSection("Home");
+    });
+
+</script>
+
+<style>
+    .containerMatches {
+        width: 100%;
+        height: 13vh;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .match {
+        width: 45%;
+        height: 90%;
+        background-color: var(--bg-secondary-color);
+        /* -webkit-box-shadow: 0 8px 12px -4px rgb(105 105 105 / 20%);
+        box-shadow: 0 8px 12px -4px rgb(105 105 105 / 20%);*/
+        border-radius: 1.5vmin;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .matchPrev {
+        animation: 1s ease-out 0s 1 slideFromLeft;
+    }
+
+    .matchNext {
+        animation: 1s ease-out 0s 1 slideFromRight;
+    }
+
+    .matchTitle {
+        height: 30%;
+    }
+
+    .matchDetails {
+        height: 70%;
+        width: 90%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .score {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+
+        .score div {
+            text-align: center;
+            font-weight: bold;
+        }
+
+    .team {
+        width: 40%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .mainNews {
+        width: 100%;
+        height: 44vh;
+        margin-top: 2vmin;
+        background-color: var(--bg-secondary-color);
+        /*-webkit-box-shadow: 0 8px 12px -4px rgb(105 105 105 / 20%);
+        box-shadow: 0 8px 12px -4px rgb(105 105 105 / 20%);*/
+        border-radius: 1.5vmin;
+        padding: 10px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        animation: 1s ease-out 0s 1 slideFromLeft;
+    }
+
+    .containerNews {
+        width: 100%;
+        height: 20vh;
+        margin-top: 2vmin;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        animation: 1s ease-out 0s 1 slideFromRight;
+    }
+
+    .news {
+        width: 32%;
+        height: 100%;
+        background-color: var(--bg-secondary-color);
+        /*-webkit-box-shadow: 0 8px 12px -4px rgb(105 105 105 / 20%);
+        box-shadow: 0 8px 12px -4px rgb(105 105 105 / 20%);*/
+        border-radius: 1.5vmin;
+        padding: 10px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .moreNews {
+        width: 100%;
+        height: 2%;
+        margin-top: 2vmin;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        text-decoration: underline;
+        animation: 1s ease-out 0s 1 slideFromRight;
+    }
+</style>
+
+<div class="containerMatches">
+    <div class="match matchPrev">
+        <div class="matchTitle sizeMediumSmall weight900">ULTIMA PARTITA</div>
+        <div class="matchDetails">
+            <div class="team">
+                <div class="sizeMedium">VERAMENTE SPORTIVA</div>
+            </div>
+            <div class="score">
+                <div class="sizeMediumBig">3-0</div>
+            </div>
+            <div class="team">
+                <div class="sizeMedium">AVVERSARIO</div>
+            </div>
+        </div>
+    </div>
+    <div class="match matchNext">
+        <div class="matchTitle sizeMediumSmall weight900">PROSSIMA PARTITA</div>
+        <div class="matchDetails">
+            <div class="team">
+                <div class="sizeMedium">AVVERSARIO</div>
+            </div>
+            <div class="score">
+                <div class="sizeMediumBig">13/11</div>
+            </div>
+            <div class="team">
+                <div class="sizeMedium">VERAMENTE SPORTIVA</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="mainNews sizeMedium">
+    <div>ULTIMA NEWS O NEWS FISSA</div>
+</div>
+
+<div class="containerNews">
+    <div class="news sizeMedium">
+        <div>NEWS</div>
+    </div>
+    <div class="news sizeMedium">
+        <div>NEWS</div>
+    </div>
+    <div class="news sizeMedium">
+        <div>NEWS</div>
+    </div>
+</div>
+
+<div class="moreNews sizeMediumSmall">
+    Visualizza altre news
+</div>
+

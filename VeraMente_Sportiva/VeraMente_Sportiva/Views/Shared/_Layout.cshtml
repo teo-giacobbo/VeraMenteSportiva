@@ -1,0 +1,215 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VeraMente Sportiva A.S.D</title>
+
+    <link rel="stylesheet" href="~/Content/bootstrap.min.css" />
+
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+
+    @RenderSection("scripts", required: false)
+
+    @*BOOTSTRAP 5*@
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+
+    @*SWEETALERT2*@
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.8/dist/sweetalert2.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gasparesganga-jquery-loading-overlay@2.1.7/dist/loadingoverlay.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.8/dist/sweetalert2.min.css">
+
+    @*TEMA BOOTSWATCH: https://bootswatch.com/cosmo/ *@
+    @*ICON FONT BOOTSTRAP: https://icons.getbootstrap.com/ *@
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="~/Content/site.css" />
+    <link rel="stylesheet" href="~/Content/loading.css" />
+</head>
+<body>
+    <div id="loading" class="loading" style="display: none;">
+        <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
+    </div>
+
+    <nav>
+        <div class="linkHome sizeMediumSmall">
+            <div class="cursorClick" onclick="openSection('Home')">
+                <span class="orange">V</span>era<span class="orange">M</span>ente <span class="orange">S</span>portiva
+            </div>
+            <img class="cursorClick" src="~/Images/logoMain.png" onclick="openSection('Home')" />
+        </div>
+
+        <div class="menu">
+            <div id="sectionHome" class="cursorClick section hoverOrange" onclick="openSection('Home')">Home</div>
+            <div id="sectionNews" class="cursorClick section hoverOrange" onclick="openSection('News')">News</div>
+            <div class="cursorClick section hoverOrange">Campionati</div>
+            <div class="cursorClick section hoverOrange">Società</div>
+            <div class="cursorClick section hoverOrange">Sponsor</div>
+            <div id="sectionContatti" class="cursorClick section hoverOrange" onclick="openSection('Home/Contatti')">Contatti</div>
+        </div>
+
+        <div class="spacer"></div>
+
+        <div class="endNav">
+            <div class="social">
+                <div class="socialIcon cursorClick">
+                    <a href="https://m.facebook.com/people/VeraMente-Sportiva/100075686395016/" target="_blank" title="Facebook: Veramente Sportiva">
+                        <i class="hoverOrange bi bi-facebook"></i>
+                    </a>
+                </div>
+                <div class="socialIcon">
+                    <a href="https://www.instagram.com/_veramentesportiva_/" target="_blank" title="Instagram: _veramentesportiva_">
+                        <i class="hoverOrange bi bi-instagram"></i>
+                    </a>
+                </div>
+                <div class="socialIcon">
+                    <a href="mailto:veramentesportiva@gmail.com" target="_blank" title="Email: veramentesportiva@gmail.com">
+                        <i class="hoverOrange bi bi-envelope"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="darkThemePortfolio">
+                <i class="bi bi-sun"></i>
+                <label class="theme-switch" for="checkboxTheme" title="Night mode">
+                    <input type="checkbox" id="checkboxTheme">
+                    <div class="slider round" onclick="changeMode()"></div>
+                </label>
+                <i class="bi bi-moon"></i>
+            </div>
+
+            <div class="login cursorClick">
+                <div class="socialIcon">
+                    <i class="bi bi-door-open sizeMedium"></i>
+                </div>
+                <div class="sizeSmall">
+                    LOGIN
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <article>
+        @RenderBody()
+    </article>
+
+    <footer>
+        <div class="nameFooter sizeBig">
+            <span class="orange">V</span>era<span class="orange">M</span>ente <span class="orange">S</span>portiva A.s.d
+        </div>
+
+        <div class="socialFooter">
+            <div class="socialIcon cursorClick">
+                <a href="https://m.facebook.com/people/VeraMente-Sportiva/100075686395016/" target="_blank" title="Facebook: Veramente Sportiva">
+                    <i class="hoverOrange sizeBig bi bi-facebook"></i>
+                </a>
+            </div>
+            <div class="socialIcon">
+                <a href="https://www.instagram.com/_veramentesportiva_/" target="_blank" title="Instagram: _veramentesportiva_">
+                    <i class="hoverOrange sizeBig bi bi-instagram"></i>
+                </a>
+            </div>
+            <div class="socialIcon">
+                <a href="mailto:veramentesportiva@gmail.com" target="_blank" title="Email: veramentesportiva@gmail.com">
+                    <i class="hoverOrange sizeBig bi bi-envelope"></i>
+                </a>
+            </div>
+        </div>
+
+        <div class="infoFooter">
+            <div class="infoGym">
+                <div class="infoTitle sizeMedium">
+                    Palestre
+                </div>
+                <div class="gym weight200">
+                    <i class="cursorClick hoverOrange bi bi-geo-alt" onclick="openMap('https://goo.gl/maps/boMyBMYUNr2bYciY6')"></i> SCUOLE ELEMENTARI UGO FOSCOLO | Via Nifontano - Varese (VA)
+                </div>
+                <div class="gym weight200">
+                    <i class="cursorClick hoverOrange bi bi-geo-alt" onclick="openMap('https://goo.gl/maps/kHxSGRe19xxbTjU57')"></i> ITET DAVERIO | Via Padre Reginaldo Giuliani - Varese (VA)
+                </div>
+                <div class="gym weight200">
+                    <i class="cursorClick hoverOrange bi bi-geo-alt" onclick="openMap('https://goo.gl/maps/CBW3CEr57MLuzSq69')"></i> ISIS NEWTON | Via Gian Luigi Zucchi - Varese (VA)
+                </div>
+            </div>
+
+            <div class="infoContacts">
+                <div class="infoTitle sizeMedium">
+                    Contatti
+                </div>
+                <div class="contact weight200">
+                    Presidente: Michele Fignelli - 349 4949491
+                </div>
+                <div class="contact weight200">
+                    Vicepresidente: Gaia Bernasconi - 349 4949492
+                </div>
+                <div class="contact weight200">
+                    Direttore tecnico: Angelo Battaglia - 349 4949493
+                </div>
+            </div>
+        </div>
+
+        <div class="bottomInfo">
+            <div class="legalInfo">
+                Tutte le foto presenti in questo sito sono riservate e protette da copyright. Non è permesso il loro uso commerciale, no-profit o governativo senza il permesso scritto di VeraMente Sportiva A.s.d.
+            </div>
+            <div class="property">
+                &copy; Copyright 2022 | Web Developer <span>Teo Giacobbo</span> | VeraMente Sportiva A.s.d
+            </div>
+        </div>
+
+    </footer>
+
+    <script>
+        var storedTheme = localStorage.getItem('theme') || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+        if (storedTheme)
+            document.documentElement.setAttribute('data-theme', storedTheme)
+
+        $(document).ready(function () {
+            var currentTheme = document.documentElement.getAttribute("data-theme");
+            if (currentTheme === "dark") {
+                $("#checkboxTheme").prop("checked", true);
+            }
+        });
+
+        function changeMode() {
+            var currentTheme = document.documentElement.getAttribute("data-theme");
+            var targetTheme = "light";
+
+            if (currentTheme === "light") {
+                targetTheme = "dark";
+            }
+
+            document.documentElement.setAttribute('data-theme', targetTheme)
+            localStorage.setItem('theme', targetTheme);
+        }
+
+        function attivaLoading() {
+            $("#loading").show();
+        }
+
+        function disattivaLoading() {
+            $("#loading").hide();
+        }
+
+        function focusSection(section) {
+            $(".section").removeClass("sectionSelected");
+            $("#section" + section).addClass("sectionSelected");
+        }
+
+        function openSection(section) {
+            attivaLoading();
+            window.location.href = "../" + section;
+        }
+
+        function openMap(link) {
+            window.open(link, '_blank'); 
+        }
+    </script>
+</body>
+</html>
