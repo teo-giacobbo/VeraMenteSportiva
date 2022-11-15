@@ -7,12 +7,20 @@
 </script>
 
 <style>
-    .containerTeam {
+    .containerTeam, .containerStaff {
         width: 100%;
         display: flex;
         flex-direction: row;
         justify-content: flex-start;
         flex-wrap: wrap;
+    }
+
+    .containerStaff {
+        animation: 0.7s ease-out 0s 1 slideFromLeft;
+    }
+
+    .containerTeam {
+        animation: 0.7s ease-out 0s 1 slideFromRight;
     }
 
     .titleSectionTeam {
@@ -25,7 +33,7 @@
         height: 35vmin;
         margin: 1.6vmin;
         background-color: var(--bg-color);
-        border-radius: 10px;
+        border-radius: 1vmin;
         border: 2px solid var(--text-color);
         overflow: hidden;
     }
@@ -116,7 +124,7 @@
     Staff
 </div>
 
-<div class="containerTeam">
+<div class="containerStaff">
     <div class="player cursorClick">
         <div class="playerImg">
             <img src="~/Images/staffPlaceholder.png" />

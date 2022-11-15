@@ -25,16 +25,20 @@
         border-right: 1px solid var(--text-color);
         margin: 2vmin 0;
         padding-right: 5vmin;
+        animation: 0.7s ease-out 0s 1 slideFromLeft;
     }
 
     .rightContacts {
         width: 50%;
         margin: 2vmin 0;
         padding-left: 5vmin;
+        animation: 0.7s ease-out 0s 1 slideFromRight;
     }
 
     .singleContact {
         width: 100%;
+        height: 10.5vmin;
+        border-bottom: 1px solid var(--bg-secondary-color);
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
@@ -47,11 +51,10 @@
     }
 
     .infoContact {
-        width: 80%;
+        width: 100%;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        margin-left: 20%;
     }
 
     .floatingFormContact {
@@ -114,9 +117,8 @@
 <div class="containerContacts">
     <div class="leftContacts">
         <div class="singleContact">
-            <div class="nameContact sizeMediumSmall">Presidente</div>
             <div class="infoContact">
-                <div class="sizeMedium weight600">Michele Fignelli</div>
+                <div class="sizeMedium weight600"><span class="weight400">Presidente: </span> Michele Fignelli</div>
                 <div class="sizeMedium weight300">349 4949491</div>
             </div>
             <div class="infoContact">
@@ -130,9 +132,8 @@
         </div>
 
         <div class="singleContact">
-            <div class="nameContact sizeMediumSmall">Vicepresidente</div>
             <div class="infoContact">
-                <div class="sizeMedium weight600">Gaia Bernasconi</div>
+                <div class="sizeMedium weight600"><span class="weight300">Vicepresidente: </span> Gaia Bernasconi</div>
                 <div class="sizeMedium weight300">349 4949492</div>
             </div>
             <div class="infoContact">
@@ -146,9 +147,8 @@
         </div>
 
         <div class="singleContact">
-            <div class="nameContact sizeMediumSmall">Direttore tecnico</div>
             <div class="infoContact">
-                <div class="sizeMedium weight600">Angelo Battaglia</div>
+                <div class="sizeMedium weight600"><span class="weight400">Direttore tecnico: </span>Angelo Battaglia</div>
                 <div class="sizeMedium weight300">349 4949493</div>
             </div>
             <div class="infoContact">
@@ -162,9 +162,8 @@
         </div>
 
         <div class="singleContact">
-            <div class="nameContact sizeMediumSmall">Gestione gare</div>
             <div class="infoContact">
-                <div class="sizeMedium weight600">Teo Giacobbo</div>
+                <div class="sizeMedium weight600"><span class="weight400">Gestione gare: </span>Teo Giacobbo</div>
                 <div class="sizeMedium weight300">349 4949494</div>
             </div>
             <div class="infoContact">
@@ -177,11 +176,9 @@
             </div>
         </div>
 
-        <div class="singleContact">
-            <div class="nameContact sizeMediumSmall">Info e segreteria</div>
+        <div class="singleContact noBorder">
             <div class="infoContact">
                 <div class="sizeMedium weight600">Info e segreteria</div>
-                <div class="sizeMedium weight300"></div>
             </div>
             <div class="infoContact">
                 <div></div>

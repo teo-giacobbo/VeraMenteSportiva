@@ -125,6 +125,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
+    <Compile Include="Controllers\SocietaController.cs" />
     <Compile Include="Controllers\TeamsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -147,6 +148,7 @@
     <Content Include="Images\logoMain.png" />
     <Content Include="Images\playerPlaceholder.png" />
     <Content Include="Images\staffPlaceholder.png" />
+    <Content Include="Images\test.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
@@ -178,6 +180,9 @@
     <Content Include="Views\Teams\Team.cshtml" />
     <Content Include="Views\Teams\Schedule.cshtml" />
     <Content Include="Views\Teams\Standing.cshtml" />
+    <Content Include="Views\Societa\Index.cshtml" />
+    <Content Include="Views\Societa\ConsiglioDirettivo.cshtml" />
+    <Content Include="Views\Societa\Sponsor.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

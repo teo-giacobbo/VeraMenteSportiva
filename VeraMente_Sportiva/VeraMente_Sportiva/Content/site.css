@@ -12,6 +12,8 @@
     --dark: #08285A;
     --orange: #DE761B;
     --orange-transparent: rgba(222, 118, 27, 0.4);
+    --bg-shadow: rgba(250, 250, 250, 0.2);
+    --text-shadow: rgba(8, 40, 90, 0.2);
 }
 
 [data-theme="light"] {
@@ -27,6 +29,8 @@
     --dark: #303030;
     --orange: #DE761B;
     --orange-transparent: rgba(222, 118, 27, 0.4);
+    --bg-shadow: rgba(250, 250, 250, 0.2);
+    --text-shadow: rgba(8, 40, 90, 0.2);
 }
 
 [data-theme="dark"] {
@@ -41,6 +45,8 @@
     --dark: #08285A;
     --orange: #DE761B;
     --orange-transparent: rgba(222, 118, 27, 0.4);
+    --bg-shadow: rgba(8, 40, 90, 0.2);
+    --text-shadow: rgba(250, 250, 250, 0.1);
 }
 
 * {
@@ -79,7 +85,7 @@
 }
 
 .hoverOrange:hover {
-    color: var(--orange);
+    color: var(--orange) !important;
 }
 
 .hoverBorderOrange:hover {
@@ -265,12 +271,15 @@ nav {
     justify-content: flex-start;
     border-radius: 5px;
     border: 1px solid var(--bg-color);
+    z-index: 100;
 }
 
 .submenuItem {
     width: 90%;
     padding: 10px 10px;
     border-bottom: 1px solid var(--bg-color);
+    color: var(--bg-color);
+    margin: 0 auto;
 }
 
     .submenuItem:hover {
@@ -280,7 +289,7 @@ nav {
 .sectionSelected {
     color: var(--orange);
     background-color: var(--text-color);
-    padding: 2px 15px;
+    padding: 5px 20px;
     border-radius: 10px;
 }
 
@@ -396,8 +405,19 @@ footer {
     position: relative;
 }
 
+.nameFooter {
+    width: 100%;
+    height: 20%;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
 .socialFooter {
     width: 100%;
+    height: 15%;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -410,16 +430,13 @@ footer {
         margin: 0 2vmin;
     }
 
-.nameFooter {
-    width: 100%;
-    text-align: center;
-    margin: 20px;
-}
-
 .infoFooter {
+    width: 100%;
+    height: 50%;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    padding-top: 0.5%;
 }
 
 .infoGym, .infoContacts {
@@ -441,8 +458,12 @@ footer {
 
 .bottomInfo {
     width: 100%;
-    margin-top: 45px;
+    height: 15%;
     margin-bottom: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .legalInfo {
@@ -450,7 +471,7 @@ footer {
     text-align: center;
     font-size: 12px;
     color: gray;
-    margin-bottom: 15px;
+    margin-bottom: 5px;
 }
 
 .property {
@@ -461,8 +482,12 @@ footer {
 }
 
     .property span {
-        color: var(--bg-color) !important;
+        color: var(--bg-color);
     }
+
+.noBorder {
+    border: 0;
+}
 
 /* ANIMATION */
 @keyframes slideFromTop {

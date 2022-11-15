@@ -4,16 +4,23 @@
 @model List<CalendarioViewModel>
 
 @{
-    DateTime primaData = new DateTime(2022, 11, 11);
     DateTime oggi = DataUtility.CurrentDateTime().Date;
 
     int checkNextGame = 0;
 }
 
 <script>
-
+    var container = $('body');
     $(document).ready(function () {
         disattivaLoading();
+
+        setTimeout(function () {
+            var scrollTo = $(".nextMatch");
+            var position = scrollTo.offset().top - container.offset().top + container.scrollTop();
+            container.animate({
+                scrollTop: position
+            });
+        }, 2000);
     });
 
 </script>
@@ -26,25 +33,58 @@
         text-align: center;
     }
 
-    .tableSchedule {
+    .schedule {
+        animation: 0.5s ease-out 0s 1 slideFromRight;
+    }
+
+    .match {
         width: 100%;
-        margin-top: 2vmin;
-    }
-
-    .headerSchedule {
+        height: 12vmin;
         border-bottom: 1px solid var(--text-color);
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        position: relative;
+        padding: 0 10px;
     }
 
-    .centerText {
+        .match:hover {
+            background-color: var(--orange-transparent);
+        }
+
+    .infoMatch {
+        height: 100%;
+        width: 25%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+
+    .resultMatch {
+        height: 100%;
+        width: 75%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .teamMatch {
+        width: 40%;
         text-align: center;
     }
 
-    .rowSchedule {
-        height: 45px;
+    .scoreMatch {
+        width: 20%;
+        text-align: center;
+        margin-top: 2vmin;
     }
 
-    .match:hover {
-        background-color: var(--orange-transparent);
+    .numberMatch {
+        position: absolute;
+        top: 0.5vmin;
+        right: 0.5vmin;
     }
 
     .nextMatch {
@@ -57,38 +97,46 @@
     Stagione 22/23
 </div>
 
-<table class="tableSchedule">
-    <tr class="headerSchedule">
-        <th style="width: 8%;">N. Gara</th>
-        <th style="width: 17%;">Data e ora</th>
-        <th style="width: 30%;">Luogo</th>
-        <th class="centerText" style="width: 20%;">Squadra di casa</th>
-        <th class="centerText" style="width: 10%;">Risultato</th>
-        <th class="centerText" style="width: 20%;">Squadra ospite</th>
-    </tr>
-
-    @for (int i = 0; i < 20; i++)
+<div class="schedule">
+    @foreach (var item in Model)
     {
-        string numeroGara = "000" + (i + 1);
-        if (i > 8)
+        string nextMatch = "";
+        if (item.dataGara >= oggi && checkNextGame == 0)
         {
-            numeroGara = "00" + (i + 1);
-        }
-        DateTime temp = primaData.AddDays(7 * i);
-        string nextGame = "";
-        if (temp >= oggi && checkNextGame == 0)
-        {
-            nextGame = "nextMatch";
+            nextMatch = "nextMatch";
             checkNextGame = 1;
         }
-
-        <tr class="rowSchedule match @nextGame">
-            <td class="weight300">@numeroGara</td>
-            <td class="weight300">@temp.ToString("dddd dd/MM/yyyy HH:mm", new System.Globalization.CultureInfo("it-IT")).ToUpper()</td>
-            <td class="weight300">VARESE - Palestra scuole elementari Ugo Foscolo</td>
-            <td class="centerText weight300">VERAMENTE SPORTIVA</td>
-            <td class="centerText weight300">///</td>
-            <td class="centerText weight300">AVVERSARIO</td>
-        </tr>
+        <div class="match @nextMatch">
+            <div class="infoMatch">
+                <div class="sizeMediumSmall weight300">
+                    @item.luogo
+                </div>
+                <div class="sizeSmallNormal weight300">
+                    @item.indirizzo
+                </div>
+                <div class="sizeMediumSmall weight300">
+                    @item.dataOra
+                </div>
+            </div>
+            <div class="resultMatch">
+                <div class="teamMatch sizeMedium">
+                    @item.squadraCasa
+                </div>
+                <div class="scoreMatch">
+                    <div class="weight900 sizeMediumBig">
+                        @item.risultato
+                    </div>
+                    <div class="weight300 sizeSmallNormal">
+                        @Html.Raw(item.parziali)
+                    </div>
+                </div>
+                <div class="teamMatch sizeMedium">
+                    @item.squadraOspite
+                </div>
+            </div>
+            <div class="numberMatch">
+                @item.numeroGara
+            </div>
+        </div>
     }
-</table>
+</div>

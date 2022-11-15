@@ -1,9 +1,46 @@
-﻿
+﻿@using VeraMente_Sportiva.Models
+
+@{ 
+    CalendarioViewModel ultimaPartita = ViewBag.UltimaPartita;
+    CalendarioViewModel prossimaPartita = ViewBag.ProssimaPartita;
+}
+
 <script>
 
     $(document).ready(function () {
         focusSection("Home");
+
+        $("#sectionChampionship").mouseover(function () {
+            checkSubmenuChampionship(1);
+        });
+
+        $("#sectionChampionship").mouseout(function () {
+            checkSubmenuChampionship(0);
+        });
+
+        $("#submenuChampionship").mouseover(function () {
+            checkSubmenuChampionship(1)
+        });
+
+        $("#submenuChampionship").mouseout(function () {
+            checkSubmenuChampionship(0)
+        });
     });
+
+    var check = "";
+    function checkSubmenuChampionship(isEnter) {
+        if (isEnter == 1) {
+            $("#submenuChampionship").show();
+            check = "Championship";
+        } else {
+            check = "";
+            setTimeout(function () {
+                if (check == "") {
+                    $("#submenuChampionship").hide();
+                }
+            }, 100);
+        }
+    }
 
 </script>
 
@@ -13,17 +50,17 @@
         height: 13vh;
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
+        justify-content: flex-start;
         align-items: center;
     }
 
     .match {
-        width: 45%;
+        width: 40%;
         height: 90%;
         background-color: var(--bg-secondary-color);
-        /* -webkit-box-shadow: 0 8px 12px -4px rgb(105 105 105 / 20%);
-        box-shadow: 0 8px 12px -4px rgb(105 105 105 / 20%);*/
-        border-radius: 1.5vmin;
+        -webkit-box-shadow: 0 8px 12px -4px var(--text-shadow);
+        box-shadow: 0 8px 12px -4px var(--text-shadow);
+        border-radius: 1vmin;
         padding: 10px;
         display: flex;
         flex-direction: column;
@@ -31,12 +68,40 @@
         align-items: center;
     }
 
+    .championship {
+        width: 20%;
+        height: 90%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+    }
+
+    .championship div {
+        text-align: center;
+    }
+
+    .submenuChampionship {
+        position: absolute;
+        top: 62%;
+        width: 200px;
+        color: var(--bg-color);
+        background: var(--text-color);
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        border-radius: 5px;
+        border: 1px solid var(--bg-color);
+        z-index: 100;
+    }
+
     .matchPrev {
-        animation: 1s ease-out 0s 1 slideFromLeft;
+        animation: 0.7s ease-out 0s 1 slideFromLeft;
     }
 
     .matchNext {
-        animation: 1s ease-out 0s 1 slideFromRight;
+        animation: 0.7s ease-out 0s 1 slideFromRight;
     }
 
     .matchTitle {
@@ -72,20 +137,30 @@
         align-items: center;
     }
 
+    .team div {
+        text-align: center;
+    }
+
+    .separator {
+        width: 100%;
+        height: 2px;
+        background-color: var(--text-color);
+        margin: 1.5vmin 0;
+    }
+
     .mainNews {
         width: 100%;
-        height: 44vh;
-        margin-top: 2vmin;
+        height: 43vh;
         background-color: var(--bg-secondary-color);
-        /*-webkit-box-shadow: 0 8px 12px -4px rgb(105 105 105 / 20%);
-        box-shadow: 0 8px 12px -4px rgb(105 105 105 / 20%);*/
-        border-radius: 1.5vmin;
+        -webkit-box-shadow: 0 8px 12px -4px var(--text-shadow);
+        box-shadow: 0 8px 12px -4px var(--text-shadow);
+        border-radius: 1vmin;
         padding: 10px;
         display: flex;
         flex-direction: row;
         justify-content: center;
         align-items: center;
-        animation: 1s ease-out 0s 1 slideFromLeft;
+        animation: 0.7s ease-out 0s 1 slideFromLeft;
     }
 
     .containerNews {
@@ -96,16 +171,16 @@
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
-        animation: 1s ease-out 0s 1 slideFromRight;
+        animation: 0.7s ease-out 0s 1 slideFromRight;
     }
 
     .news {
         width: 32%;
         height: 100%;
         background-color: var(--bg-secondary-color);
-        /*-webkit-box-shadow: 0 8px 12px -4px rgb(105 105 105 / 20%);
-        box-shadow: 0 8px 12px -4px rgb(105 105 105 / 20%);*/
-        border-radius: 1.5vmin;
+        -webkit-box-shadow: 0 8px 12px -4px var(--text-shadow);
+        box-shadow: 0 8px 12px -4px var(--text-shadow);
+        border-radius: 1vmin;
         padding: 10px;
         display: flex;
         flex-direction: row;
@@ -122,7 +197,7 @@
         justify-content: center;
         align-items: center;
         text-decoration: underline;
-        animation: 1s ease-out 0s 1 slideFromRight;
+        animation: 0.7s ease-out 0s 1 slideFromRight;
     }
 </style>
 
@@ -131,14 +206,24 @@
         <div class="matchTitle sizeMediumSmall weight900">ULTIMA PARTITA</div>
         <div class="matchDetails">
             <div class="team">
-                <div class="sizeMedium">VERAMENTE SPORTIVA</div>
+                <div class="sizeMedium">@ultimaPartita.squadraCasa</div>
             </div>
             <div class="score">
-                <div class="sizeMediumBig">3-0</div>
+                <div class="sizeMediumBig">@ultimaPartita.risultato</div>
             </div>
             <div class="team">
-                <div class="sizeMedium">AVVERSARIO</div>
+                <div class="sizeMedium">@ultimaPartita.squadraOspite</div>
             </div>
+        </div>
+    </div>
+
+    <div class="championship">
+        <div id="sectionChampionship" class="cursorClick hoverOrange itemWithSubmenu">
+        Prima divisione maschile <i class="bi bi-caret-down-fill"></i></div>
+
+        <div id="submenuChampionship" class="submenuChampionship cursorClick" style="display: none;">
+            <div class="submenuItem">Prima divisione maschile</div>
+            <div class="submenuItem noBorder">PGS libera femminile</div>
         </div>
     </div>
 
@@ -146,17 +231,19 @@
         <div class="matchTitle sizeMediumSmall weight900">PROSSIMA PARTITA</div>
         <div class="matchDetails">
             <div class="team">
-                <div class="sizeMedium">AVVERSARIO</div>
+                <div class="sizeMedium">@prossimaPartita.squadraCasa</div>
             </div>
             <div class="score">
-                <div class="sizeMediumBig">13/11</div>
+                <div class="sizeMediumBig">@prossimaPartita.dataGara.ToString("dd/MM")</div>
             </div>
             <div class="team">
-                <div class="sizeMedium">VERAMENTE SPORTIVA</div>
+                <div class="sizeMedium">@prossimaPartita.squadraOspite</div>
             </div>
         </div>
     </div>
 </div>
+
+<div class="separator"></div>
 
 <div class="mainNews sizeMedium hoverBorderOrange cursorClick">
     <div>ULTIMA NEWS O NEWS FISSA</div>

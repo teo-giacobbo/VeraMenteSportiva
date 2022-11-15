@@ -53,18 +53,18 @@
                 <div id="submenuCampionati" class="submenu" style="display: none;">
                     <div class="submenuItem" onclick="openSection('Teams/Index?championship=1DM')">1° Div. Maschile</div>
                     <div class="submenuItem">PGS Femminile</div>
-                    <div class="submenuItem" style="border-bottom: 0;">Minivolley</div>
+                    <div class="submenuItem noBorder">Minivolley</div>
                 </div>
             </div>
             <div id="sectionSocieta" class="cursorClick section hoverOrange itemWithSubmenu">
                 Società
                 <div id="submenuSocieta" class="submenu" style="display: none;">
-                    <div class="submenuItem">Chi siamo</div>
-                    <div class="submenuItem">Consiglio direttivo</div>
-                    <div class="submenuItem" style="border-bottom: 0;">Contatti</div>
+                    <div class="submenuItem" onclick="openSection('Societa')">Chi siamo</div>
+                    <div class="submenuItem" onclick="openSection('Societa/ConsiglioDirettivo')">Consiglio direttivo</div>
+                    <div class="submenuItem noBorder" onclick="openSection('Societa/Sponsor')">Sponsor</div>
                 </div>
             </div>
-            <div class="cursorClick section hoverOrange">Sponsor</div>
+            @*<div id="sectionSponsor" class="cursorClick section hoverOrange" onclick="openSection('Societa/Sponsor')">Sponsor</div>*@
             <div id="sectionContatti" class="cursorClick section hoverOrange" onclick="openSection('Home/Contatti')">Contatti</div>
         </div>
 
@@ -142,13 +142,13 @@
                     Palestre
                 </div>
                 <div class="gym weight200">
-                    <i class="cursorClick hoverOrange bi bi-geo-alt" onclick="openMap('https://goo.gl/maps/boMyBMYUNr2bYciY6')"></i> SCUOLE ELEMENTARI UGO FOSCOLO | Via Nifontano - Varese (VA)
+                    <i class="cursorClick hoverOrange bi bi-geo-alt" onclick="openNewTab('https://goo.gl/maps/boMyBMYUNr2bYciY6')"></i> SCUOLE ELEMENTARI UGO FOSCOLO | Via Nifontano - Varese (VA)
                 </div>
                 <div class="gym weight200">
-                    <i class="cursorClick hoverOrange bi bi-geo-alt" onclick="openMap('https://goo.gl/maps/kHxSGRe19xxbTjU57')"></i> ITET DAVERIO | Via Padre Reginaldo Giuliani - Varese (VA)
+                    <i class="cursorClick hoverOrange bi bi-geo-alt" onclick="openNewTab('https://goo.gl/maps/kHxSGRe19xxbTjU57')"></i> ITET DAVERIO | Via Padre Reginaldo Giuliani - Varese (VA)
                 </div>
                 <div class="gym weight200">
-                    <i class="cursorClick hoverOrange bi bi-geo-alt" onclick="openMap('https://goo.gl/maps/CBW3CEr57MLuzSq69')"></i> ISIS NEWTON | Via Gian Luigi Zucchi - Varese (VA)
+                    <i class="cursorClick hoverOrange bi bi-geo-alt" onclick="openNewTab('https://goo.gl/maps/CBW3CEr57MLuzSq69')"></i> ISIS NEWTON | Via Gian Luigi Zucchi - Varese (VA)
                 </div>
             </div>
 
@@ -167,13 +167,15 @@
                 </div>
             </div>
         </div>
-
+        <div style="flex-grow: 1;"></div>
         <div class="bottomInfo">
             <div class="legalInfo">
                 Tutte le foto presenti in questo sito sono riservate e protette da copyright. Non è permesso il loro uso commerciale, no-profit o governativo senza il permesso scritto di VeraMente Sportiva A.s.d.
             </div>
             <div class="property">
-                &copy; Copyright 2022 | Web Developer <span>Teo Giacobbo</span> | VeraMente Sportiva A.s.d
+                &copy; Copyright 2022 | 
+                Web Developer <span class="hoverOrange cursorClick" onclick="openNewTab('https://www.linkedin.com/in/teo-giacobbo/')" title="LinkedIn: Teo Giacobbo">Teo Giacobbo</span> | 
+                VeraMente Sportiva A.s.d
             </div>
         </div>
 
@@ -221,6 +223,8 @@
             $("#submenuSocieta").mouseout(function () {
                 checkSubmenu('Societa', 0)
             });
+
+            
         });
 
         var subMenu = "";
@@ -268,7 +272,7 @@
             window.location.href = "../" + section;
         }
 
-        function openMap(link) {
+        function openNewTab(link) {
             window.open(link, '_blank');
         }
     </script>
