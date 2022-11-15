@@ -1,4 +1,9 @@
-﻿<script>
+﻿@using VeraMente_Sportiva.Utils
+@using VeraMente_Sportiva.Models
+
+@model List<ClassificaViewModel>
+
+<script>
 
     $(document).ready(function () {
         disattivaLoading();
@@ -14,8 +19,69 @@
         text-align: center;
     }
 
+    .tableSchedule {
+        width: 100%;
+        margin-top: 2vmin;
+    }
+
+    .headerSchedule {
+        border-bottom: 1px solid var(--text-color);
+    }
+
+    .centerText {
+        text-align: center;
+    }
+
+    .rowSchedule {
+        height: 50px;
+    }
+
+    .match:hover {
+        background-color: var(--orange-transparent);
+    }
+
+    .nextMatch {
+        background-color: var(--orange) !important;
+        color: var(--text-color);
+    }
 </style>
 
 <div class="titleSectionStanding sizeMediumBig weight300">
-    Classifica
+    Stagione 22/23
 </div>
+
+<table class="tableSchedule">
+    <tr class="headerSchedule">
+        <th style="width: 5%;"></th>
+        <th style="width: 30%;">Squadra</th>
+        <th class="centerText" style="width: 8%;">Punti</th>
+        <th class="centerText" style="width: 8%;">G</th>
+        <th class="centerText" style="width: 8%;">GV</th>
+        <th class="centerText" style="width: 8%;">GP</th>
+        <th class="centerText" style="width: 8%;">SV</th>
+        <th class="centerText" style="width: 8%;">SP</th>
+        <th class="centerText" style="width: 8%;">PF</th>
+        <th class="centerText" style="width: 8%;">PS</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        string nextGame = "";
+        if (item.nome.ToLower() == "Veramente sportiva A.s.d.".ToLower())
+        {
+            nextGame = "nextMatch";
+        }
+        <tr class="rowSchedule match @nextGame">
+            <td class="weight300 centerText">@item.posizione</td>
+            <td class="weight300 sizeMediumSmall">@item.nome</td>
+            <td class="weight700 sizeMediumSmall centerText">@item.punti</td>
+            <td class="weight300 centerText">@item.giornate</td>
+            <td class="weight300 centerText">@item.giornateVinte</td>
+            <td class="weight300 centerText">@item.giornatePerse</td>
+            <td class="weight300 centerText">@item.setVinti</td>
+            <td class="weight300 centerText">@item.setPersi</td>
+            <td class="weight300 centerText">@item.puntiFatti</td>
+            <td class="weight300 centerText">@item.puntiPersi</td>
+        </tr>
+    }
+</table>

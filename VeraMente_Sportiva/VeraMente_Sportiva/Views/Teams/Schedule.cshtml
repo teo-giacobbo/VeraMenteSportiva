@@ -1,4 +1,16 @@
-﻿<script>
+﻿@using VeraMente_Sportiva.Utils
+@using VeraMente_Sportiva.Models
+
+@model List<CalendarioViewModel>
+
+@{
+    DateTime primaData = new DateTime(2022, 11, 11);
+    DateTime oggi = DataUtility.CurrentDateTime().Date;
+
+    int checkNextGame = 0;
+}
+
+<script>
 
     $(document).ready(function () {
         disattivaLoading();
@@ -13,8 +25,70 @@
         width: 100%;
         text-align: center;
     }
+
+    .tableSchedule {
+        width: 100%;
+        margin-top: 2vmin;
+    }
+
+    .headerSchedule {
+        border-bottom: 1px solid var(--text-color);
+    }
+
+    .centerText {
+        text-align: center;
+    }
+
+    .rowSchedule {
+        height: 45px;
+    }
+
+    .match:hover {
+        background-color: var(--orange-transparent);
+    }
+
+    .nextMatch {
+        background-color: var(--orange) !important;
+        color: var(--text-color);
+    }
 </style>
 
 <div class="titleSectionSchedule sizeMediumBig weight300">
-    Calendario
+    Stagione 22/23
 </div>
+
+<table class="tableSchedule">
+    <tr class="headerSchedule">
+        <th style="width: 8%;">N. Gara</th>
+        <th style="width: 17%;">Data e ora</th>
+        <th style="width: 30%;">Luogo</th>
+        <th class="centerText" style="width: 20%;">Squadra di casa</th>
+        <th class="centerText" style="width: 10%;">Risultato</th>
+        <th class="centerText" style="width: 20%;">Squadra ospite</th>
+    </tr>
+
+    @for (int i = 0; i < 20; i++)
+    {
+        string numeroGara = "000" + (i + 1);
+        if (i > 8)
+        {
+            numeroGara = "00" + (i + 1);
+        }
+        DateTime temp = primaData.AddDays(7 * i);
+        string nextGame = "";
+        if (temp >= oggi && checkNextGame == 0)
+        {
+            nextGame = "nextMatch";
+            checkNextGame = 1;
+        }
+
+        <tr class="rowSchedule match @nextGame">
+            <td class="weight300">@numeroGara</td>
+            <td class="weight300">@temp.ToString("dddd dd/MM/yyyy HH:mm", new System.Globalization.CultureInfo("it-IT")).ToUpper()</td>
+            <td class="weight300">VARESE - Palestra scuole elementari Ugo Foscolo</td>
+            <td class="centerText weight300">VERAMENTE SPORTIVA</td>
+            <td class="centerText weight300">///</td>
+            <td class="centerText weight300">AVVERSARIO</td>
+        </tr>
+    }
+</table>
