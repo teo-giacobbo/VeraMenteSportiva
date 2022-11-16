@@ -38,6 +38,7 @@
         margin-bottom: 2vmin;
     }
 
+    /* Smartphones Portrait */
     @@media (min-width: 320px) and (max-width: 480px) {
         .titleSectionSociety {
             font-size: 20px !important;
@@ -50,6 +51,23 @@
         .sponsor {
             width: 100%;
             height: 22vh;
+            margin-bottom: 4vmin;
+        }
+    }
+
+    /* Smartphones Landscape */
+    @@media (min-width: 481px) and (max-width: 767px) {
+        .titleSectionSociety {
+            font-size: 20px !important;
+        }
+
+        .subtitleSectionSociety {
+            font-size: 14px !important;
+        }
+
+        .sponsor {
+            width: 100%;
+            height: 50vh;
             margin-bottom: 4vmin;
         }
     }

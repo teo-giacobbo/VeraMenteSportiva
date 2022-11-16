@@ -109,6 +109,7 @@
         align-items: center;
     }
 
+    /* Smartphones Portrait */
     @@media (min-width: 320px) and (max-width: 480px) {
         .titleContacts {
             font-size: 20px !important;
@@ -151,6 +152,55 @@
         .infoContact .sizeMedium {
             font-size: 16px !important;
         }
+
+        .rightContacts .sizeMedium {
+            font-size: 16px !important;
+        }
+    }
+
+    /* Smartphones Landscape */
+    @@media (min-width: 481px) and (max-width: 767px) {
+        .titleContacts {
+            font-size: 20px !important;
+        }
+
+        .containerContacts {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+
+        .rightContacts {
+            border: 0;
+            width: 100%;
+            padding-left: 0;
+        }
+
+        .leftContacts {
+            width: 100%;
+            border-right: 0;
+            border-bottom: 1px solid var(--text-color);
+        }
+
+        .singleContact {
+            height: 22vh;
+            border-bottom: 1px solid var(--bg-secondary-color);
+            margin-bottom: 2vmin;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+        }
+
+        .infoContact {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+            .infoContact .sizeMedium {
+                font-size: 16px !important;
+            }
 
         .rightContacts .sizeMedium {
             font-size: 16px !important;

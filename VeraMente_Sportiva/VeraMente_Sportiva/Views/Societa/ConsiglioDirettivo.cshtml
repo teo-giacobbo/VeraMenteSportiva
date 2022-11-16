@@ -99,6 +99,7 @@
         justify-content: space-around;
     }
 
+    /* Smartphones Portrait */
     @@media (min-width: 320px) and (max-width: 480px) {
         .titleSectionSociety {
             text-align: center;
@@ -121,6 +122,33 @@
 
         .playerNumber .sizeBig {
             font-size: 40px !important;
+        }
+    }
+
+    /* Smartphones Landscape */
+    @@media (min-width: 481px) and (max-width: 767px) {
+        .titleSectionSociety {
+            font-size: 20px !important;
+            text-align: center;
+            margin: 2vmin 0;
+        }
+
+        .player {
+            width: 49%;
+            height: 80vh;
+            margin: 2vmin auto;
+        }
+
+        .playerInfo {
+            padding: 0 4vmin;
+        }
+
+        .captain {
+            height: 2vmin;
+        }
+
+        .playerNumber .sizeBig {
+            font-size: 30px !important;
         }
     }
 </style>

@@ -23,9 +23,11 @@
     }
 
     .mainText {
+        text-align: justify;
         animation: 0.7s ease-out 0s 1 slideFromRight;
     }
 
+    /* Smartphones Portrait */
     @@media (min-width: 320px) and (max-width: 480px) {
         .titleSectionSociety {
             font-size: 20px !important;
@@ -33,6 +35,22 @@
 
         .mainImg {
             width: 100%;
+        }
+
+        .mainText {
+            font-size: 14px !important;
+            text-align: justify !important;
+        }
+    }
+
+    /* Smartphones Landscape */
+    @@media (min-width: 481px) and (max-width: 767px) {
+        .titleSectionSociety {
+            font-size: 20px !important;
+        }
+
+        .mainImg {
+            width: 50%;
         }
 
         .mainText {

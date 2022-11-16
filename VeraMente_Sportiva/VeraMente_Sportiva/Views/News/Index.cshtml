@@ -61,6 +61,7 @@
         animation: 0.7s ease-out 0s 1 slideFromRight;
     }
 
+    /* Smartphones Portrait */
     @@media (min-width: 320px) and (max-width: 480px) {
         .mainNews {
             margin-bottom: 4vmin;
@@ -68,6 +69,31 @@
 
         .news {
             width: 100%;
+            margin-bottom: 4vmin;
+        }
+    }
+
+    /* Smartphones Landscape */
+    @@media (min-width: 481px) and (max-width: 767px) {
+        .mainNews {
+            height: 70vh;
+            margin-bottom: 4vmin;
+        }
+
+        .containerNews {
+            width: 100%;
+            margin-top: 2vmin;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            animation: 0.7s ease-out 0s 1 slideFromRight;
+        }
+
+        .news {
+            width: 49%;
+            height: 50vh;
             margin-bottom: 4vmin;
         }
     }

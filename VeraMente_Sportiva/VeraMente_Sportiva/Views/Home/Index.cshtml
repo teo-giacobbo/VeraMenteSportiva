@@ -200,8 +200,8 @@
         animation: 0.7s ease-out 0s 1 slideFromRight;
     }
 
+    /* Smartphones Portrait */
     @@media (min-width: 320px) and (max-width: 480px) {
-
         .matchPrev {
             display: none;
         }
@@ -239,6 +239,58 @@
             width: 100%;
             height: 30vmin;
             margin-bottom: 2vmin;
+        }
+    }
+
+    /* Smartphones Landscape */
+    @@media (min-width: 481px) and (max-width: 767px) {
+        .matchPrev {
+            display: none;
+        }
+
+        .championship {
+            display: none;
+        }
+
+        .matchNext {
+            width: 100%;
+        }
+
+        .match {
+            padding: 2px;
+        }
+
+        .matchDetails {
+            width: 100%;
+        }
+
+        .score .sizeMediumBig {
+            font-size: 16px !important;
+        }
+
+        .matchTitle {
+            font-size: 12px !important;
+        }
+
+        .team .sizeMedium {
+            font-size: 13px;
+        }
+
+        .mainNews {
+            height: 65vh;
+        }
+
+        .containerNews {
+            height: auto;
+            flex-wrap: wrap;
+            display: none;
+        }
+
+        .news {
+            width: 100%;
+            height: 30vmin;
+            margin-bottom: 2vmin;
+
         }
     }
 </style>
