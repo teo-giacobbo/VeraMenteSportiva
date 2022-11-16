@@ -967,6 +967,21 @@ footer {
     }
 }
 
+/* Tablet Landscape */
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    .linkHome {
+        width: 30%;
+    }
+
+    .spacer {
+        width: 8%;
+    }
+
+    .nameFooter {
+        height: 17%;
+    }
+}
+
 /**************/
 /*  ANIMATION */
 /**************/
