@@ -10,33 +10,33 @@
     $(document).ready(function () {
         focusSection("Home");
 
-        $("#sectionChampionship").mouseover(function () {
-            checkSubmenuChampionship(1);
+        $("#sectionCampionato").mouseover(function () {
+            checkSubmenuCampionato(1);
         });
 
-        $("#sectionChampionship").mouseout(function () {
-            checkSubmenuChampionship(0);
+        $("#sectionCampionato").mouseout(function () {
+            checkSubmenuCampionato(0);
         });
 
-        $("#submenuChampionship").mouseover(function () {
-            checkSubmenuChampionship(1)
+        $("#submenuCampionato").mouseover(function () {
+            checkSubmenuCampionato(1)
         });
 
-        $("#submenuChampionship").mouseout(function () {
-            checkSubmenuChampionship(0)
+        $("#submenuCampionato").mouseout(function () {
+            checkSubmenuCampionato(0)
         });
     });
 
     var check = "";
-    function checkSubmenuChampionship(isEnter) {
+    function checkSubmenuCampionato(isEnter) {
         if (isEnter == 1) {
-            $("#submenuChampionship").show();
+            $("#submenuCampionato").show();
             check = "Championship";
         } else {
             check = "";
             setTimeout(function () {
                 if (check == "") {
-                    $("#submenuChampionship").hide();
+                    $("#submenuCampionato").hide();
                 }
             }, 100);
         }
@@ -218,10 +218,10 @@
     </div>
 
     <div class="championship">
-        <div id="sectionChampionship" class="cursorClick hoverOrange itemWithSubmenu">
+        <div id="sectionCampionato" class="cursorClick hoverOrange itemWithSubmenu">
         Prima divisione maschile <i class="bi bi-caret-down-fill"></i></div>
 
-        <div id="submenuChampionship" class="submenuChampionship cursorClick" style="display: none;">
+        <div id="submenuCampionato" class="submenuChampionship cursorClick" style="display: none;">
             <div class="submenuItem">Prima divisione maschile</div>
             <div class="submenuItem noBorder">PGS libera femminile</div>
         </div>

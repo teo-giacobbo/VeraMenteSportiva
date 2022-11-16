@@ -8,7 +8,8 @@ namespace VeraMente_Sportiva.Models
     public class ClassificaViewModel
     {
         public int posizione { get; set; }
-        public string nome { get; set; }
+        public string immagineSquadra { get; set; }
+        public string squadra { get; set; }
         public int punti { get; set; }
         public int giornate { get; set; }
         public int giornateVinte { get; set; }

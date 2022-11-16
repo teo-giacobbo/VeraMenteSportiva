@@ -8,12 +8,9 @@
 
 <style>
     .titleSectionSociety {
-        margin-top: 2vmin;
         margin-bottom: 2vmin;
         width: 100%;
         text-align: center;
-        line-height: 40px;
-        animation: 0.7s ease-out 0s 1 slideFromTop;
     }
 
     .containerSponsor {
@@ -28,7 +25,7 @@
 
     .sponsor {
         width: 32%;
-        height: 22vh;
+        height: 21.5vh;
         background-color: var(--bg-secondary-color);
         -webkit-box-shadow: 0 8px 12px -4px var(--text-shadow);
         box-shadow: 0 8px 12px -4px var(--text-shadow);
@@ -42,37 +39,20 @@
     }
 </style>
 
+<div class="titleSectionSociety sizeBig weight900">
+    Sponsor
+</div>
+
 <div class="titleSectionSociety sizeMediumBig weight300">
     Queste sono le realtà che, con il loro supporto, ci aiutano e ci sostengono in questo nostro percorso. <br />
     <span class="weight600">Grazie mille!</span>
 </div>
 
 <div class="containerSponsor">
-    <div class="sponsor hoverBorderOrange">
-        <div>Sponsor</div>
-    </div>
-    <div class="sponsor hoverBorderOrange">
-        <div>Sponsor</div>
-    </div>
-    <div class="sponsor hoverBorderOrange">
-        <div>Sponsor</div>
-    </div>
-    <div class="sponsor hoverBorderOrange">
-        <div>Sponsor</div>
-    </div>
-    <div class="sponsor hoverBorderOrange">
-        <div>Sponsor</div>
-    </div>
-    <div class="sponsor hoverBorderOrange">
-        <div>Sponsor</div>
-    </div>
-    <div class="sponsor hoverBorderOrange">
-        <div>Sponsor</div>
-    </div>
-    <div class="sponsor hoverBorderOrange">
-        <div>Sponsor</div>
-    </div>
-    <div class="sponsor hoverBorderOrange">
-        <div>Sponsor</div>
-    </div>
+    @for (int i = 0; i < 9; i++)
+    {
+        <div class="sponsor hoverBorderOrange">
+            <div>SPONSOR</div>
+        </div>
+    }
 </div>

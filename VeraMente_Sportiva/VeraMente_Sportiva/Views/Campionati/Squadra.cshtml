@@ -3,28 +3,33 @@
 
 @model List<PersonaViewModel>
 
+@{
+    List<PersonaViewModel> listaStaff = ViewBag.ListaStaff;
+}
+
 <script>
 
     $(document).ready(function () {
-        focusSection("Societa");
+        disattivaLoading();
     });
 
 </script>
 
 <style>
-    .titleSectionSociety {
-        margin-bottom: 2vmin;
-        width: 100%;
-        text-align: center;
-    }
-
-    .containerTeam {
+    .containerTeam, .containerStaff {
         width: 100%;
         display: flex;
         flex-direction: row;
         justify-content: flex-start;
         flex-wrap: wrap;
+    }
+
+    .containerStaff {
         animation: 0.7s ease-out 0s 1 slideFromLeft;
+    }
+
+    .containerTeam {
+        animation: 0.7s ease-out 0s 1 slideFromRight;
     }
 
     .titleSectionTeam {
@@ -40,6 +45,8 @@
         border-radius: 1vmin;
         border: 2px solid var(--text-color);
         overflow: hidden;
+        -webkit-box-shadow: 0 8px 12px -4px var(--text-shadow);
+        box-shadow: 0 8px 12px -4px var(--text-shadow);
     }
 
         .player:hover {
@@ -98,14 +105,38 @@
         flex-direction: column;
         justify-content: space-around;
     }
+
+    .playerName {
+        height: 100%;
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+
+    .playerNumber {
+        height: 100%;
+        width: 20%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .captain {
+        width: 70%;
+        height: 1vmin;
+        background-color: var(--text-color);
+    }
 </style>
 
-<div class="titleSectionSociety sizeBig weight900">
-    Consiglio direttivo
+
+<div class="titleSectionTeam sizeMediumBig weight300">
+    Staff
 </div>
 
-<div class="containerTeam">
-    @foreach (var item in Model)
+<div class="containerStaff">
+    @foreach (var item in listaStaff)
     {
         <div class="player">
             <div class="playerImg">
@@ -115,6 +146,34 @@
                 <div class="staffName">
                     <div class="sizeMedium weight600">@item.nome @item.cognome</div>
                     <div class="sizeMediumSmall weight300 orange">@item.ruolo</div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+<div class="titleSectionTeam sizeMediumBig weight300">
+    Giocatori
+</div>
+
+<div class="containerTeam">
+    @foreach (var item in Model)
+    {
+        <div class="player">
+            <div class="playerImg">
+                <img src="~/Images/playerPlaceholder.png" />
+            </div>
+            <div class="playerInfo">
+                <div class="playerName">
+                    <div class="sizeMedium weight600">@item.nome @item.cognome</div>
+                    <div class="sizeMediumSmall weight300 orange">@item.ruolo</div>
+                </div>
+                <div class="playerNumber">
+                    <div class="sizeBig weight900">@item.numero</div>
+                    @if (item.isCapitano)
+                    {
+                        <div class="captain"></div>
+                    }
                 </div>
             </div>
         </div>

@@ -123,15 +123,16 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CampionatiController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Controllers\SocietaController.cs" />
-    <Compile Include="Controllers\TeamsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\CalendarioViewModel.cs" />
     <Compile Include="Models\ClassificaViewModel.cs" />
+    <Compile Include="Models\PersonaViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utils\DataUtility.cs" />
   </ItemGroup>
@@ -145,6 +146,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\site.css" />
+    <Content Include="Images\iconLayout.png" />
     <Content Include="Images\logoMain.png" />
     <Content Include="Images\playerPlaceholder.png" />
     <Content Include="Images\staffPlaceholder.png" />
@@ -176,13 +178,13 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\News\Index.cshtml" />
     <Content Include="Views\Home\Contatti.cshtml" />
-    <Content Include="Views\Teams\Index.cshtml" />
-    <Content Include="Views\Teams\Team.cshtml" />
-    <Content Include="Views\Teams\Schedule.cshtml" />
-    <Content Include="Views\Teams\Standing.cshtml" />
-    <Content Include="Views\Societa\Index.cshtml" />
+    <Content Include="Views\Societa\ChiSiamo.cshtml" />
     <Content Include="Views\Societa\ConsiglioDirettivo.cshtml" />
     <Content Include="Views\Societa\Sponsor.cshtml" />
+    <Content Include="Views\Campionati\Index.cshtml" />
+    <Content Include="Views\Campionati\Calendario.cshtml" />
+    <Content Include="Views\Campionati\Classifica.cshtml" />
+    <Content Include="Views\Campionati\Squadra.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -6,7 +6,7 @@
 @{
     DateTime oggi = DataUtility.CurrentDateTime().Date;
 
-    int checkNextGame = 0;
+    int checkProssimaPartita = 0;
 }
 
 <script>
@@ -71,25 +71,67 @@
     }
 
     .teamMatch {
+        height: 100%;
         width: 40%;
         text-align: center;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .containerImgSquadra {
+        width: 20%;
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .imgSquadra {
+        height: 50%;
+        display: block;
+    }
+
+    .nomeSquadra {
+        width: 80%;
     }
 
     .scoreMatch {
         width: 20%;
+        height: 100%;
         text-align: center;
-        margin-top: 2vmin;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
     }
 
-    .numberMatch {
-        position: absolute;
-        top: 0.5vmin;
-        right: 0.5vmin;
+    .numberMatch, .parziali {
+        height: 25%;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .risultato {
+        height: 50%;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
     }
 
     .nextMatch {
         background-color: var(--orange) !important;
         color: var(--text-color);
+    }
+
+    .parziali {
+        font-size: 14px;
     }
 </style>
 
@@ -100,13 +142,13 @@
 <div class="schedule">
     @foreach (var item in Model)
     {
-        string nextMatch = "";
-        if (item.dataGara >= oggi && checkNextGame == 0)
+        string prossimaPartita = "";
+        if (item.dataGara >= oggi && checkProssimaPartita == 0)
         {
-            nextMatch = "nextMatch";
-            checkNextGame = 1;
+            prossimaPartita = "nextMatch";
+            checkProssimaPartita = 1;
         }
-        <div class="match @nextMatch">
+        <div class="match @prossimaPartita">
             <div class="infoMatch">
                 <div class="sizeMediumSmall weight300">
                     @item.luogo
@@ -120,22 +162,28 @@
             </div>
             <div class="resultMatch">
                 <div class="teamMatch sizeMedium">
-                    @item.squadraCasa
+                    <div class="containerImgSquadra">
+                        <img class="imgSquadra" src="@item.immagineCasa" />
+                    </div>
+                    <div class="nomeSquadra">@item.squadraCasa</div>
                 </div>
                 <div class="scoreMatch">
-                    <div class="weight900 sizeMediumBig">
+                    <div class="numberMatch">
+                        @item.numeroGara
+                    </div>
+                    <div class="risultato weight900 sizeMediumBig">
                         @item.risultato
                     </div>
-                    <div class="weight300 sizeSmallNormal">
+                    <div class="weight300 parziali">
                         @Html.Raw(item.parziali)
                     </div>
                 </div>
                 <div class="teamMatch sizeMedium">
-                    @item.squadraOspite
+                    <div class="nomeSquadra">@item.squadraOspite</div>
+                    <div class="containerImgSquadra">
+                        <img class="imgSquadra" src="@item.immagineOspite" />
+                    </div>
                 </div>
-            </div>
-            <div class="numberMatch">
-                @item.numeroGara
             </div>
         </div>
     }

@@ -3,7 +3,8 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>VeraMente Sportiva A.S.D</title>
+    <title>VeraMente Sportiva A.s.d</title>
+    <link rel="icon" href="~/Images/iconLayout.png" type="image/x-icon" />
 
     <link rel="stylesheet" href="~/Content/bootstrap.min.css" />
 
@@ -39,19 +40,19 @@
 
     <nav>
         <div class="linkHome sizeMediumSmall">
-            <div class="cursorClick" onclick="openSection('Home')">
+            <div class="cursorClick" onclick="apriSezione('Home')">
                 <span class="orange">V</span>era<span class="orange">M</span>ente <span class="orange">S</span>portiva
             </div>
-            <img class="cursorClick" src="~/Images/logoMain.png" onclick="openSection('Home')" />
+            <img class="cursorClick" src="~/Images/logoMain.png" onclick="apriSezione('Home')" />
         </div>
 
         <div class="menu">
-            <div id="sectionHome" class="cursorClick section hoverOrange" onclick="openSection('Home')">Home</div>
-            <div id="sectionNews" class="cursorClick section hoverOrange" onclick="openSection('News')">News</div>
+            <div id="sectionHome" class="cursorClick section hoverOrange" onclick="apriSezione('Home')">Home</div>
+            <div id="sectionNews" class="cursorClick section hoverOrange" onclick="apriSezione('News')">News</div>
             <div id="sectionCampionati" class="cursorClick section hoverOrange itemWithSubmenu">
                 Campionati
                 <div id="submenuCampionati" class="submenu" style="display: none;">
-                    <div class="submenuItem" onclick="openSection('Teams/Index?championship=1DM')">1° Div. Maschile</div>
+                    <div class="submenuItem" onclick="apriSezione('Campionati/Index?campionato=1DM')">1° Div. Maschile</div>
                     <div class="submenuItem">PGS Femminile</div>
                     <div class="submenuItem noBorder">Minivolley</div>
                 </div>
@@ -59,13 +60,13 @@
             <div id="sectionSocieta" class="cursorClick section hoverOrange itemWithSubmenu">
                 Società
                 <div id="submenuSocieta" class="submenu" style="display: none;">
-                    <div class="submenuItem" onclick="openSection('Societa')">Chi siamo</div>
-                    <div class="submenuItem" onclick="openSection('Societa/ConsiglioDirettivo')">Consiglio direttivo</div>
-                    <div class="submenuItem noBorder" onclick="openSection('Societa/Sponsor')">Sponsor</div>
+                    <div class="submenuItem" onclick="apriSezione('Societa/ChiSiamo')">Chi siamo</div>
+                    <div class="submenuItem" onclick="apriSezione('Societa/ConsiglioDirettivo')">Consiglio direttivo</div>
+                    <div class="submenuItem noBorder" onclick="apriSezione('Societa/Sponsor')">Sponsor</div>
                 </div>
             </div>
-            @*<div id="sectionSponsor" class="cursorClick section hoverOrange" onclick="openSection('Societa/Sponsor')">Sponsor</div>*@
-            <div id="sectionContatti" class="cursorClick section hoverOrange" onclick="openSection('Home/Contatti')">Contatti</div>
+            @*<div id="sectionSponsor" class="cursorClick section hoverOrange" onclick="apriSezione('Societa/Sponsor')">Sponsor</div>*@
+            <div id="sectionContatti" class="cursorClick section hoverOrange" onclick="apriSezione('Home/Contatti')">Contatti</div>
         </div>
 
         <div class="spacer"></div>
@@ -93,7 +94,7 @@
                 <i class="bi bi-sun"></i>
                 <label class="theme-switch" for="checkboxTheme" title="Night mode">
                     <input type="checkbox" id="checkboxTheme">
-                    <div class="slider round" onclick="changeMode()"></div>
+                    <div class="slider round" onclick="cambiaTema()"></div>
                 </label>
                 <i class="bi bi-moon"></i>
             </div>
@@ -142,13 +143,13 @@
                     Palestre
                 </div>
                 <div class="gym weight200">
-                    <i class="cursorClick hoverOrange bi bi-geo-alt" onclick="openNewTab('https://goo.gl/maps/boMyBMYUNr2bYciY6')"></i> SCUOLE ELEMENTARI UGO FOSCOLO | Via Nifontano - Varese (VA)
+                    <span class="cursorClick hoverOrange" onclick="apriNuovaScheda('https://goo.gl/maps/boMyBMYUNr2bYciY6')"><i class="bi bi-geo-alt"></i> SCUOLE ELEMENTARI UGO FOSCOLO | Via Nifontano - Varese (VA)</span>
                 </div>
                 <div class="gym weight200">
-                    <i class="cursorClick hoverOrange bi bi-geo-alt" onclick="openNewTab('https://goo.gl/maps/kHxSGRe19xxbTjU57')"></i> ITET DAVERIO | Via Padre Reginaldo Giuliani - Varese (VA)
+                    <span class="cursorClick hoverOrange" onclick="apriNuovaScheda('https://goo.gl/maps/kHxSGRe19xxbTjU57')"><i class="bi bi-geo-alt"></i> ITET DAVERIO | Via Padre Reginaldo Giuliani - Varese (VA)</span>
                 </div>
                 <div class="gym weight200">
-                    <i class="cursorClick hoverOrange bi bi-geo-alt" onclick="openNewTab('https://goo.gl/maps/CBW3CEr57MLuzSq69')"></i> ISIS NEWTON | Via Gian Luigi Zucchi - Varese (VA)
+                    <span class="cursorClick hoverOrange" onclick="apriNuovaScheda('https://goo.gl/maps/CBW3CEr57MLuzSq69')"><i class="bi bi-geo-alt"></i> ISIS NEWTON | Via Gian Luigi Zucchi - Varese (VA)</span>
                 </div>
             </div>
 
@@ -169,12 +170,12 @@
         </div>
         <div style="flex-grow: 1;"></div>
         <div class="bottomInfo">
-            <div class="legalInfo">
+            <div class="legalInfo sizeSmallNormal weight300">
                 Tutte le foto presenti in questo sito sono riservate e protette da copyright. Non è permesso il loro uso commerciale, no-profit o governativo senza il permesso scritto di VeraMente Sportiva A.s.d.
             </div>
-            <div class="property">
+            <div class="property sizeSmallNormal weight300">
                 &copy; Copyright 2022 | 
-                Web Developer <span class="hoverOrange cursorClick" onclick="openNewTab('https://www.linkedin.com/in/teo-giacobbo/')" title="LinkedIn: Teo Giacobbo">Teo Giacobbo</span> | 
+                Web Developer <span class="hoverOrange cursorClick weight600" onclick="openNewTab('https://www.linkedin.com/in/teo-giacobbo/')" title="LinkedIn: Teo Giacobbo">Teo Giacobbo</span> | 
                 VeraMente Sportiva A.s.d
             </div>
         </div>
@@ -242,7 +243,7 @@
             }
         }
 
-        function changeMode() {
+        function cambiaTema() {
             var currentTheme = document.documentElement.getAttribute("data-theme");
             var targetTheme = "light";
 
@@ -262,17 +263,17 @@
             $("#loading").hide();
         }
 
-        function focusSection(section) {
+        function focusSection(sezione) {
             $(".section").removeClass("sectionSelected");
-            $("#section" + section).addClass("sectionSelected");
+            $("#section" + sezione).addClass("sectionSelected");
         }
 
-        function openSection(section) {
+        function apriSezione(sezione) {
             attivaLoading();
-            window.location.href = "../" + section;
+            window.location.href = "../" + sezione;
         }
 
-        function openNewTab(link) {
+        function apriNuovaScheda(link) {
             window.open(link, '_blank');
         }
     </script>

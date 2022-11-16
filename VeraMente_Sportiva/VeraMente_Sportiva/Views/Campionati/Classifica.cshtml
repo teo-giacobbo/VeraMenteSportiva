@@ -45,6 +45,10 @@
         background-color: var(--orange) !important;
         color: var(--text-color);
     }
+
+    .imgSquadra {
+        width: 30px;
+    }
 </style>
 
 <div class="titleSectionStanding sizeMediumBig weight300">
@@ -67,14 +71,17 @@
 
     @foreach (var item in Model)
     {
-        string nextGame = "";
-        if (item.nome.ToLower() == "Veramente sportiva A.s.d.".ToLower())
+        string squadra = "";
+        if (item.squadra.ToLower() == "Veramente sportiva A.s.d.".ToLower())
         {
-            nextGame = "nextMatch";
+            squadra = "nextMatch";
         }
-        <tr class="rowSchedule match @nextGame">
+        <tr class="rowSchedule match @squadra">
             <td class="weight300 centerText">@item.posizione</td>
-            <td class="weight300 sizeMediumSmall">@item.nome</td>
+            <td class="weight300 sizeMediumSmall">
+                <img class="imgSquadra" src="@item.immagineSquadra" />
+                @item.squadra
+            </td>
             <td class="weight700 sizeMediumSmall centerText">@item.punti</td>
             <td class="weight300 centerText">@item.giornate</td>
             <td class="weight300 centerText">@item.giornateVinte</td>

@@ -13,7 +13,9 @@ namespace VeraMente_Sportiva.Models
         public string indirizzo { get; set; }
         public string luogo { get; set; }
         public string squadraCasa { get; set; }
+        public string immagineCasa { get; set; }
         public string squadraOspite { get; set; }
+        public string immagineOspite { get; set; }
         public string risultato { get; set; }
         public string parziali { get; set; }
     }

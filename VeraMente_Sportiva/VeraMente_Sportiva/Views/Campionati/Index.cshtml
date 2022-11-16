@@ -5,13 +5,13 @@
         attivaLoading();
     });
 
-    function openSectionTeams(section) {
+    function apriSezioneSquadra(sezione) {
         attivaLoading();
         $(".sectionTeams").removeClass("sectionTeamSelected");
-        $("#sectionTeams" + section).addClass("sectionTeamSelected");
+        $("#sectionTeams" + sezione).addClass("sectionTeamSelected");
 
         $("#mainInfoTeam").html("");
-        $("#mainInfoTeam").load("../Teams/" + section + "?championship=" + "@ViewBag.Championship");
+        $("#mainInfoTeam").load("../Campionati/" + sezione + "?campionato=" + "@ViewBag.Campionato");
     }
 
 </script>
@@ -49,26 +49,26 @@
 </style>
 
 <div class="titleTeam sizeBig weight900">
-    @if (ViewBag.Championship == "1DM")
+    @if (ViewBag.Campionato == "1DM")
     {
         <span>Prima Divisione Maschile</span>
     }
-    else if (ViewBag.Championship == "PGSF")
+    else if (ViewBag.Campionato == "PGSF")
     {
         <span>PGS Libera Femminile</span>
     }
-    else if (ViewBag.Championship == "MV")
+    else if (ViewBag.Campionato == "MV")
     {
         <span>Mini Volley</span>
     }
 </div>
 
 <div class="sectionsTeam">
-    <div id="sectionTeamsTeam" class="sectionTeams cursorClick sizeMediumSmall weight300 hoverOrange sectionTeamSelected" onclick="openSectionTeams('Team')">Squadra</div>
-    <div id="sectionTeamsSchedule" class="sectionTeams cursorClick sizeMediumSmall weight300 hoverOrange" onclick="openSectionTeams('Schedule')">Calendario</div>
-    <div id="sectionTeamsStanding" class="sectionTeams cursorClick sizeMediumSmall weight300 hoverOrange" onclick="openSectionTeams('Standing')">Classifica</div>
+    <div id="sectionTeamsSquadra" class="sectionTeams cursorClick sizeMediumSmall weight300 hoverOrange sectionTeamSelected" onclick="apriSezioneSquadra('Squadra')">Squadra</div>
+    <div id="sectionTeamsCalendario" class="sectionTeams cursorClick sizeMediumSmall weight300 hoverOrange" onclick="apriSezioneSquadra('Calendario')">Calendario</div>
+    <div id="sectionTeamsClassifica" class="sectionTeams cursorClick sizeMediumSmall weight300 hoverOrange" onclick="apriSezioneSquadra('Classifica')">Classifica</div>
 </div>
 
 <div id="mainInfoTeam" class="mainInfoTeam">
-    @Html.Action("Team", "Teams", new { championship = ViewBag.Championship })
+    @Html.Action("Squadra", "Campionati", new { campionato = ViewBag.Campionato })
 </div>
