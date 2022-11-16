@@ -568,7 +568,7 @@ footer {
     }
 
     .voceSocialMobile {
-        min-height: 10%;
+        min-height: 15%;
         width: 90%;
         margin: 0 auto;
         padding: 10px;
@@ -593,7 +593,7 @@ footer {
         width: 33%;
         border-right: 1px solid var(--text-color);
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
         flex-wrap: wrap;
