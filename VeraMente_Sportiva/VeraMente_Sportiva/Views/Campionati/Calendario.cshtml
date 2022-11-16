@@ -133,6 +133,78 @@
     .parziali {
         font-size: 14px;
     }
+
+    @@media (min-width: 320px) and (max-width: 480px) {
+        .titleSectionSchedule {
+            font-size: 20px !important;
+            margin-bottom: 2vmin;
+        }
+
+        .match {
+            width: 100%;
+            height: 33vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .infoMatch {
+            width: 100%;
+            height: 55%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+            .infoMatch .sizeMediumSmall {
+                font-size: 12px;
+                font-weight: 500;
+                width: 25%;
+                text-align: center;
+            }
+
+            .infoMatch .sizeSmallNormal {
+                text-align: center;
+                width: 50%;
+            }
+
+        .resultMatch {
+            height: 45%;
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .teamMatch {
+            width: 35%;
+        }
+
+        .scoreMatch {
+            width: 30%;
+        }
+
+        .numberMatch {
+            font-weight: 300;
+        }
+
+        .containerImgSquadra {
+            display: none;
+        }
+
+        .nomeSquadra {
+            width: 100%;
+            font-size: 16px;
+        }
+
+        .parziali {
+            display: none;
+        }
+    }
 </style>
 
 <div class="titleSectionSchedule sizeMediumBig weight300">

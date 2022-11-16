@@ -30,7 +30,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="~/Content/site.css" />
+    <link rel="stylesheet" href="~/Content/sito.css" />
     <link rel="stylesheet" href="~/Content/loading.css" />
 </head>
 <body>
@@ -71,6 +71,12 @@
 
         <div class="spacer"></div>
 
+        <div class="iconMenuMobile" onclick="apriMenuMobile()">
+            <div class="socialIcon">
+                <i class="bi bi-list sizeBig"></i>
+            </div>
+        </div>
+
         <div class="endNav">
             <div class="social">
                 <div class="socialIcon cursorClick">
@@ -109,6 +115,63 @@
             </div>
         </div>
     </nav>
+
+    <div id="menuMobile" class="menuMobile" style="display: none;">
+        <div class="voceMenuMobile sizeMedium" onclick="apriSezione('Home')">Home</div>
+        <div class="voceMenuMobile sizeMedium" onclick="apriSezione('News')">News</div>
+        <div class="voceMenuMobile">
+            <div class="sezioneMenuMobile sizeMedium weight300">Campionati</div>
+            <div class="sottoMenuMobile">
+                <div class="sizeMediumSmall" onclick="apriSezione('Campionati/Index?campionato=1DM')">1° Div. Maschile</div>
+                <div class="sizeMediumSmall">PGS Femminile</div>
+                <div class="sizeMediumSmall">Minivolley</div>
+            </div>
+        </div>
+        <div class="voceMenuMobile">
+            <div class="sezioneMenuMobile sizeMedium weight300">Società</div>
+            <div class="sottoMenuMobile">
+                <div class="sizeMediumSmall" onclick="apriSezione('Societa/ChiSiamo')">Chi siamo</div>
+                <div class="sizeMediumSmall" onclick="apriSezione('Societa/ConsiglioDirettivo')">Consiglio direttivo</div>
+                <div class="sizeMediumSmall" onclick="apriSezione('Societa/Sponsor')">Sponsor</div>
+            </div>
+        </div>
+        <div class="voceMenuMobile sizeMedium" onclick="apriSezione('Home/Contatti')">Contatti</div>
+        <div class="voceSocialMobile">
+            <div class="socialMobile">
+                <div class="socialIcon cursorClick">
+                    <a href="https://m.facebook.com/people/VeraMente-Sportiva/100075686395016/" target="_blank" title="Facebook: Veramente Sportiva">
+                        <i class="hoverOrange bi bi-facebook sizeBig"></i>
+                    </a>
+                </div>
+                <div class="socialIcon">
+                    <a href="https://www.instagram.com/_veramentesportiva_/" target="_blank" title="Instagram: _veramentesportiva_">
+                        <i class="hoverOrange bi bi-instagram sizeBig"></i>
+                    </a>
+                </div>
+                <div class="socialIcon">
+                    <a href="mailto:veramentesportiva@gmail.com" target="_blank" title="Email: veramentesportiva@gmail.com">
+                        <i class="hoverOrange bi bi-envelope sizeBig"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="darkThemeMobile">
+                <i class="bi bi-sun"></i>
+                <label class="theme-switch" for="checkboxThemeMobile" title="Night mode">
+                    <input type="checkbox" id="checkboxThemeMobile">
+                    <div class="slider round" onclick="cambiaTema()"></div>
+                </label>
+                <i class="bi bi-moon"></i>
+            </div>
+            <div class="socialMobile login cursorClick hoverOrange noBorder">
+                <div class="socialIcon">
+                    <i class="bi bi-door-open sizeMedium"></i>
+                </div>
+                <div class="sizeSmall">
+                    LOGIN
+                </div>
+            </div>
+        </div>
+    </div>
 
     <article>
         @RenderBody()
@@ -174,8 +237,8 @@
                 Tutte le foto presenti in questo sito sono riservate e protette da copyright. Non è permesso il loro uso commerciale, no-profit o governativo senza il permesso scritto di VeraMente Sportiva A.s.d.
             </div>
             <div class="property sizeSmallNormal weight300">
-                &copy; Copyright 2022 | 
-                Web Developer <span class="hoverOrange cursorClick weight600" onclick="openNewTab('https://www.linkedin.com/in/teo-giacobbo/')" title="LinkedIn: Teo Giacobbo">Teo Giacobbo</span> | 
+                &copy; Copyright 2022 |
+                Web Developer <span class="hoverOrange cursorClick weight600" onclick="openNewTab('https://www.linkedin.com/in/teo-giacobbo/')" title="LinkedIn: Teo Giacobbo">Teo Giacobbo</span> |
                 VeraMente Sportiva A.s.d
             </div>
         </div>
@@ -191,6 +254,7 @@
             var currentTheme = document.documentElement.getAttribute("data-theme");
             if (currentTheme === "dark") {
                 $("#checkboxTheme").prop("checked", true);
+                $("#checkboxThemeMobile").prop("checked", true);
             }
 
             $("#sectionCampionati").mouseover(function () {
@@ -225,7 +289,7 @@
                 checkSubmenu('Societa', 0)
             });
 
-            
+
         });
 
         var subMenu = "";
@@ -275,6 +339,16 @@
 
         function apriNuovaScheda(link) {
             window.open(link, '_blank');
+        }
+
+        function apriMenuMobile() {
+            if (!$("#menuMobile").is(":visible")) {
+                $("body").addClass("nascondiOverflow");
+                $("#menuMobile").show();
+            } else {
+                $("body").removeClass("nascondiOverflow");
+                $("#menuMobile").hide();
+            }
         }
     </script>
 </body>

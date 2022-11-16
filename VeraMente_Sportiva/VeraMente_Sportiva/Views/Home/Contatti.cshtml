@@ -108,6 +108,50 @@
         justify-content: space-between;
         align-items: center;
     }
+
+    @@media (min-width: 320px) and (max-width: 480px) {
+        .containerContacts {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+
+        .rightContacts {
+            border: 0;
+            width: 100%;
+            padding-left: 0;
+        }
+
+        .leftContacts {
+            width: 100%;
+            border-right: 0;
+            border-bottom: 1px solid var(--text-color);
+        }
+
+        .singleContact {
+            height: 13vh;
+            border-bottom: 1px solid var(--bg-secondary-color);
+            margin-bottom: 2vmin;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+        }
+
+        .infoContact {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .infoContact .sizeMedium {
+            font-size: 16px !important;
+        }
+
+        .rightContacts .sizeMedium {
+            font-size: 16px !important;
+        }
+    }
 </style>
 
 <div class="titleContacts sizeBig weight900">
@@ -119,7 +163,7 @@
         <div class="singleContact">
             <div class="infoContact">
                 <div class="sizeMedium weight600"><span class="weight400">Presidente: </span> Michele Fignelli</div>
-                <div class="sizeMedium weight300">349 4949491</div>
+                <div class="sizeMedium weight300">Tel. 349 4949491</div>
             </div>
             <div class="infoContact">
                 <div></div>
@@ -134,7 +178,7 @@
         <div class="singleContact">
             <div class="infoContact">
                 <div class="sizeMedium weight600"><span class="weight300">Vicepresidente: </span> Gaia Bernasconi</div>
-                <div class="sizeMedium weight300">349 4949492</div>
+                <div class="sizeMedium weight300">Tel. 349 4949492</div>
             </div>
             <div class="infoContact">
                 <div></div>
@@ -149,7 +193,7 @@
         <div class="singleContact">
             <div class="infoContact">
                 <div class="sizeMedium weight600"><span class="weight400">Direttore tecnico: </span>Angelo Battaglia</div>
-                <div class="sizeMedium weight300">349 4949493</div>
+                <div class="sizeMedium weight300">Tel. 349 4949493</div>
             </div>
             <div class="infoContact">
                 <div></div>
@@ -164,7 +208,7 @@
         <div class="singleContact">
             <div class="infoContact">
                 <div class="sizeMedium weight600"><span class="weight400">Gestione gare: </span>Teo Giacobbo</div>
-                <div class="sizeMedium weight300">349 4949494</div>
+                <div class="sizeMedium weight300">Tel. 349 4949494</div>
             </div>
             <div class="infoContact">
                 <div></div>
@@ -204,11 +248,11 @@
             </div>
             <div class="form-floating floatingFormContact">
                 <input id="emailForm" type="text" class="form-control floatingFormField" placeholder="nome@esempio.com">
-                <label for="emailForm" class="labelFormField">Email a cui poterti contattare *</label>
+                <label for="emailForm" class="labelFormField">Email *</label>
             </div>
             <div class="form-floating floatingFormContact">
                 <input id="phoneForm" type="text" class="form-control floatingFormField" placeholder="Telefono">
-                <label for="phoneForm" class="labelFormField">Telefono a cui poterti contattare (opzionale)</label>
+                <label for="phoneForm" class="labelFormField">Telefono (opzionale)</label>
             </div>
 
             <textarea class="form-control floatingFormTextArea" rows="15" placeholder="Chiedi pure qualsiasi info desideri. Ti risponderemo quanto prima!"></textarea>

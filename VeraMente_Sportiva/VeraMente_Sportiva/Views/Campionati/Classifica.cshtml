@@ -49,6 +49,21 @@
     .imgSquadra {
         width: 30px;
     }
+
+    @@media (min-width: 320px) and (max-width: 480px) {
+        .titleSectionStanding {
+            font-size: 20px !important;
+            margin-bottom: 2vmin;
+        }
+
+        .imgSquadra {
+            display: none;
+        }
+
+        .rowSchedule .sizeMediumSmall {
+            font-size: 14px;
+        }
+    }
 </style>
 
 <div class="titleSectionStanding sizeMediumBig weight300">
@@ -61,12 +76,12 @@
         <th style="width: 30%;">Squadra</th>
         <th class="centerText" style="width: 8%;">Punti</th>
         <th class="centerText" style="width: 8%;">G</th>
-        <th class="centerText" style="width: 8%;">GV</th>
-        <th class="centerText" style="width: 8%;">GP</th>
-        <th class="centerText" style="width: 8%;">SV</th>
-        <th class="centerText" style="width: 8%;">SP</th>
-        <th class="centerText" style="width: 8%;">PF</th>
-        <th class="centerText" style="width: 8%;">PS</th>
+        <th class="centerText hideMobilePort" style="width: 8%;">GV</th>
+        <th class="centerText hideMobilePort" style="width: 8%;">GP</th>
+        <th class="centerText hideMobilePort" style="width: 8%;">SV</th>
+        <th class="centerText hideMobilePort" style="width: 8%;">SP</th>
+        <th class="centerText hideMobilePort" style="width: 8%;">PF</th>
+        <th class="centerText hideMobilePort" style="width: 8%;">PS</th>
     </tr>
 
     @foreach (var item in Model)
@@ -84,12 +99,12 @@
             </td>
             <td class="weight700 sizeMediumSmall centerText">@item.punti</td>
             <td class="weight300 centerText">@item.giornate</td>
-            <td class="weight300 centerText">@item.giornateVinte</td>
-            <td class="weight300 centerText">@item.giornatePerse</td>
-            <td class="weight300 centerText">@item.setVinti</td>
-            <td class="weight300 centerText">@item.setPersi</td>
-            <td class="weight300 centerText">@item.puntiFatti</td>
-            <td class="weight300 centerText">@item.puntiPersi</td>
+            <td class="weight300 centerText hideMobilePort">@item.giornateVinte</td>
+            <td class="weight300 centerText hideMobilePort">@item.giornatePerse</td>
+            <td class="weight300 centerText hideMobilePort">@item.setVinti</td>
+            <td class="weight300 centerText hideMobilePort">@item.setPersi</td>
+            <td class="weight300 centerText hideMobilePort">@item.puntiFatti</td>
+            <td class="weight300 centerText hideMobilePort">@item.puntiPersi</td>
         </tr>
     }
 </table>

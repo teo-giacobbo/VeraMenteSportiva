@@ -145,7 +145,7 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Content\site.css" />
+    <Content Include="Content\sito.css" />
     <Content Include="Images\iconLayout.png" />
     <Content Include="Images\logoMain.png" />
     <Content Include="Images\playerPlaceholder.png" />

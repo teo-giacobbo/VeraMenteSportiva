@@ -1,6 +1,6 @@
 ﻿@using VeraMente_Sportiva.Models
 
-@{ 
+@{
     CalendarioViewModel ultimaPartita = ViewBag.UltimaPartita;
     CalendarioViewModel prossimaPartita = ViewBag.ProssimaPartita;
 }
@@ -78,9 +78,9 @@
         position: relative;
     }
 
-    .championship div {
-        text-align: center;
-    }
+        .championship div {
+            text-align: center;
+        }
 
     .submenuChampionship {
         position: absolute;
@@ -137,9 +137,9 @@
         align-items: center;
     }
 
-    .team div {
-        text-align: center;
-    }
+        .team div {
+            text-align: center;
+        }
 
     .separator {
         width: 100%;
@@ -199,6 +199,48 @@
         text-decoration: underline;
         animation: 0.7s ease-out 0s 1 slideFromRight;
     }
+
+    @@media (min-width: 320px) and (max-width: 480px) {
+
+        .matchPrev {
+            display: none;
+        }
+
+        .championship {
+            display: none;
+        }
+
+        .matchNext {
+            width: 100%;
+        }
+
+        .match {
+            padding: 2px;
+        }
+
+        .matchDetails {
+            width: 100%;
+        }
+
+        .matchTitle {
+            font-size: 12px !important;
+        }
+
+        .team .sizeMedium {
+            font-size: 13px;
+        }
+
+        .containerNews {
+            height: auto;
+            flex-wrap: wrap;
+        }
+
+        .news {
+            width: 100%;
+            height: 30vmin;
+            margin-bottom: 2vmin;
+        }
+    }
 </style>
 
 <div class="containerMatches">
@@ -219,7 +261,8 @@
 
     <div class="championship">
         <div id="sectionCampionato" class="cursorClick hoverOrange itemWithSubmenu">
-        Prima divisione maschile <i class="bi bi-caret-down-fill"></i></div>
+            Prima divisione maschile <i class="bi bi-caret-down-fill"></i>
+        </div>
 
         <div id="submenuCampionato" class="submenuChampionship cursorClick" style="display: none;">
             <div class="submenuItem">Prima divisione maschile</div>
