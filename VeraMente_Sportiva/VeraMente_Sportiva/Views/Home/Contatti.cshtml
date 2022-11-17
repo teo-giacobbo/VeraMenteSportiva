@@ -206,6 +206,61 @@
             font-size: 16px !important;
         }
     }
+
+    /* Tablet Landscape */
+    @@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+        .titleContacts {
+            font-size: 20px !important;
+        }
+
+        .leftContacts {
+            width: 40%;
+        }
+
+        .rightContacts {
+            width: 60%;
+        }
+
+        .singleContact {
+            width: 100%;
+            height: 15vh;
+            border-bottom: 1px solid var(--bg-secondary-color);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 0;
+        }
+
+        .infoContact {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+            .infoContact .sizeMedium {
+                font-size: 16px !important;
+            }
+
+        .rightContacts .sizeMedium {
+            font-size: 16px !important;
+        }
+
+        .labelFormField {
+            font-size: 14px;
+        }
+
+        .floatingFormField {
+            font-size: 14px;
+            height: 40px !important;
+        }
+
+        .floatingFormTextArea {
+            font-size: 14px;
+            height: 35vh !important;
+        }
+    }
 </style>
 
 <div class="titleContacts sizeBig weight900">
