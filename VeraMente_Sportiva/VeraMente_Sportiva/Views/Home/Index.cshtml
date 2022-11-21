@@ -3,6 +3,10 @@
 @{
     CalendarioViewModel ultimaPartita = ViewBag.UltimaPartita;
     CalendarioViewModel prossimaPartita = ViewBag.ProssimaPartita;
+
+    CardNews myMainCard = ViewBag.MainNews;
+    List<ClassificaViewModel> listaSquadreClassifica = ViewBag.ListaSquadreClassifica;
+    List<CardNews> listaNews = ViewBag.ListaNews;
 }
 
 <script>
@@ -57,7 +61,7 @@
     .match {
         width: 40%;
         height: 90%;
-        background-color: var(--bg-secondary-color);
+        background-color: var(--orange-vuoto);
         -webkit-box-shadow: 0 8px 12px -4px var(--text-shadow);
         box-shadow: 0 8px 12px -4px var(--text-shadow);
         border-radius: 1vmin;
@@ -66,6 +70,7 @@
         flex-direction: column;
         justify-content: space-around;
         align-items: center;
+        border: 2px solid var(--orange);
     }
 
     .championship {
@@ -148,19 +153,140 @@
         margin: 1.5vmin 0;
     }
 
-    .mainNews {
+    .mainNewsEsterno {
         width: 100%;
         height: 63vh;
-        background-color: var(--bg-secondary-color);
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .mainNews {
+        width: 75%;
+        height: 100%;
         -webkit-box-shadow: 0 8px 12px -4px var(--text-shadow);
         box-shadow: 0 8px 12px -4px var(--text-shadow);
         border-radius: 1vmin;
-        padding: 10px;
+        overflow: hidden;
+        animation: 0.7s ease-out 0s 1 slideFromLeft;
+    }
+
+    .mainNewsInside {
+        width: 100%;
+        height: 100%;
+        padding: 10px 30px 20px 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        overflow: hidden;
+        box-shadow: inset 0 0 0 1000px rgb(0 0 0 / 50%);
+        transition: all 0.2s;
+        animation: fadein 0.2s;
+    }
+
+        .mainNewsInside:hover {
+            box-shadow: inset 0 0 0 1000px rgb(0 0 0 / 30%);
+        }
+
+    .mainNewsInfo {
+        width: 100%;
+        height: 10%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .mainNewsTags {
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    .tagMainNews {
+        color: var(--light);
+        background-color: var(--orange);
+        padding: 3px 10px;
+        opacity: 0.9;
+        margin-right: 2vmin;
+        border-radius: 1vmin;
+    }
+
+    .mainNewsDate {
+        height: 100%;
+        display: flex;
+        color: var(--light);
+        opacity: 0.7;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        font-style: italic;
+    }
+
+    .mainNewsContent {
+        width: 100%;
+        max-height: 40%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+
+    .mainNewsTitle {
+        width: 100%;
+        height: 30%;
+        font-size: 40px;
+        color: var(--light);
+    }
+
+    .mainNewsPreview {
+        width: 100%;
+        height: 70%;
+        color: var(--light);
+        overflow: hidden;
+    }
+
+    .classifica {
+        width: 24%;
+        height: 100%;
+        animation: 0.7s ease-out 0s 1 slideFromRight;
+    }
+
+    .classificaTitle {
+        width: 100%;
+        height: 10%;
         display: flex;
         flex-direction: row;
         justify-content: center;
         align-items: center;
-        animation: 0.7s ease-out 0s 1 slideFromLeft;
+    }
+
+    .classificaBody {
+        width: 100%;
+        height: 90%;
+    }
+
+    .classificaTeam {
+        width: 100%;
+        border-bottom: 1px solid var(--bg-secondary-color);
+    }
+
+    .tableSchedule {
+        width: 100%;
+        height: 100%;
+    }
+
+    .squadraTable {
+        padding-left: 3px;
+    }
+
+    .nextMatch {
+        background-color: var(--orange) !important;
+        color: var(--text-color);
+        padding-left: 5px !important;
     }
 
     .containerNews {
@@ -181,11 +307,85 @@
         -webkit-box-shadow: 0 8px 12px -4px var(--text-shadow);
         box-shadow: 0 8px 12px -4px var(--text-shadow);
         border-radius: 1vmin;
-        padding: 10px;
         display: flex;
         flex-direction: row;
-        justify-content: center;
+        justify-content: space-between;
+        overflow: hidden;
+    }
+
+    .newsInside {
+        width: 100%;
+        height: 100%;
+        padding: 10px 30px 20px 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
         align-items: center;
+        overflow: hidden;
+        box-shadow: inset 0 0 0 1000px rgb(0 0 0 / 50%);
+        transition: all 0.2s;
+        animation: fadein 0.2s;
+    }
+
+        .newsInside:hover {
+            box-shadow: inset 0 0 0 1000px rgb(0 0 0 / 30%);
+        }
+
+    .newsInfo {
+        width: 100%;
+        height: 10%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .newsTags {
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    .tagNews {
+        color: var(--light);
+        background-color: var(--orange);
+        padding: 3px 10px;
+        opacity: 0.9;
+        margin-right: 2vmin;
+        border-radius: 1vmin;
+    }
+
+    .newsDate {
+        height: 100%;
+        display: flex;
+        color: var(--light);
+        opacity: 0.7;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        font-style: italic;
+    }
+
+    .newsContent {
+        width: 100%;
+        max-height: 40%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+
+    .newsTitle {
+        width: 100%;
+        color: var(--light);
+    }
+
+    .newsPreview {
+        width: 100%;
+        height: 70%;
+        color: var(--light);
+        overflow: hidden;
     }
 
     .moreNews {
@@ -295,7 +495,6 @@
             width: 100%;
             height: 30vmin;
             margin-bottom: 2vmin;
-
         }
     }
 
@@ -304,7 +503,7 @@
         .matchTitle {
             font-size: 12px !important;
         }
-        
+
         .score .sizeMediumBig {
             font-size: 16px !important;
         }
@@ -364,20 +563,86 @@
 
 <div class="separator"></div>
 
-<div class="mainNews sizeMedium hoverBorderOrange cursorClick">
-    <div>ULTIMA NEWS O NEWS FISSA</div>
+<div class="mainNewsEsterno">
+    <div class="mainNews sizeMedium cursorClick">
+        <div class="mainNewsInside" style="background-image: url(../../Images/@myMainCard.immagine); background-size: cover;">
+            <div class="mainNewsInfo">
+                <div class="mainNewsTags">
+                    @foreach (var item in myMainCard.tags)
+                    {
+                        <div class="tagMainNews sizeMediumSmall weight500">@item</div>
+                    }
+                </div>
+                <div class="mainNewsDate sizeMediumSmall weight500">
+                    <div>@myMainCard.dataPubblicazione.ToString("dd/MM/yyyy")</div>
+                </div>
+            </div>
+            <div class="mainNewsContent">
+                <div class="mainNewsTitle weight900">
+                    <div>@myMainCard.titolo</div>
+                </div>
+                <div class="mainNewsPreview sizeMedium weight300">
+                    <div>@myMainCard.contenuto</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="classifica">
+        <div class="classificaTitle sizeMedium weight900">CLASSIFICA</div>
+        <div class="classificaBody">
+            <table class="tableSchedule">
+                <tr class="headerSchedule">
+                    <th style="width: 84%;">Squadra</th>
+                    <th class="centerText" title="Punti" style="width: 8%;">P</th>
+                    <th class="centerText" title="Giornate" style="width: 8%;">G</th>
+                </tr>
+                @foreach (var item in listaSquadreClassifica)
+                {
+                    string squadra = "";
+                    if (item.squadra.ToLower() == "Veramente sportiva A.s.d.".ToLower())
+                    {
+                        squadra = "nextMatch";
+                    }
+                    <tr class="rowSchedule classificaTeam @squadra">
+                        <td class="weight300 sizeMediumSmall squadraTable">
+                            @item.squadra
+                        </td>
+                        <td class="weight700 sizeMediumSmall centerText" style="width: 8%;">@item.punti</td>
+                        <td class="weight300 centerText" style="width: 8%;">@item.giornate</td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
 </div>
 
+
 <div class="containerNews">
-    <div class="news sizeMedium hoverBorderOrange cursorClick">
-        <div>NEWS</div>
-    </div>
-    <div class="news sizeMedium hoverBorderOrange cursorClick">
-        <div>NEWS</div>
-    </div>
-    <div class="news sizeMedium hoverBorderOrange cursorClick">
-        <div>NEWS</div>
-    </div>
+    @foreach (var item in listaNews)
+    {
+        <div class="news cursorClick">
+            <div class="newsInside" style="background-image: url(../../Images/@item.immagine); background-size: cover;">
+                <div class="newsInfo">
+                    <div class="newsTags">
+                        @foreach (var tag in item.tags)
+                        {
+                            <div class="tagNews sizeSmallNormal weight500">@tag</div>
+                        }
+                    </div>
+                    <div class="newsDate sizeSmallNormal weight500">
+                        <div>@item.dataPubblicazione.ToString("dd/MM/yyyy")</div>
+                    </div>
+                </div>
+                <div class="newsContent">
+                    <div class="newsTitle sizeMedium weight900">
+                        <div>@item.titolo</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+
 </div>
 
 <div class="moreNews sizeMediumSmall cursorClick hoverOrange" onclick="apriSezione('News')">

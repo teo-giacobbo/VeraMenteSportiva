@@ -131,6 +131,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\CalendarioViewModel.cs" />
+    <Compile Include="Models\CardNews.cs" />
     <Compile Include="Models\ClassificaViewModel.cs" />
     <Compile Include="Models\PersonaViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -148,6 +149,9 @@
     <Content Include="Content\sito.css" />
     <Content Include="Images\iconLayout.png" />
     <Content Include="Images\logoMain.png" />
+    <Content Include="Images\news1.jpg" />
+    <Content Include="Images\news2.jpg" />
+    <Content Include="Images\news3.jpg" />
     <Content Include="Images\playerPlaceholder.png" />
     <Content Include="Images\staffPlaceholder.png" />
     <Content Include="Images\test.jpg" />
