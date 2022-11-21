@@ -180,7 +180,7 @@ namespace VeraMente_Sportiva.Controllers
                 listaNews.Add(myCard);
 
                 myCard = new CardNews();
-                myCard.titolo = "Angelo Battaglia nuovo allenatore della 1DM";
+                myCard.titolo = "Angelo Battaglia nuovo allenatore della Prima Divisione";
                 myCard.contenuto = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec molestie, purus quis ultrices scelerisque, tellus dolor ultricies dui, " +
                     "non rhoncus nisl nibh vel massa.Nam ac convallis lacus, nec elementum justo. Curabitur eu fringilla massa. Sed in lacinia arcu. Nullam " +
                     "eu purus ut leo pellentesque maximus at vel lectus. Sed in magna purus. Vestibulum nec consequat dolor, non sagittis justo. Integer quam " +

@@ -46,6 +46,11 @@
         }
     }
 
+    function apriNews(newsID) {
+        attivaLoading();
+        window.location.href = "../News/Notizia?newsID=" + newsID;
+    }
+
 </script>
 
 <style>
@@ -86,6 +91,11 @@
         .championship div {
             text-align: center;
         }
+
+    .champLogo {
+        height: 100%;
+        width: auto;
+    }
 
     .submenuChampionship {
         position: absolute;
@@ -187,7 +197,7 @@
     }
 
         .mainNewsInside:hover {
-            box-shadow: inset 0 0 0 1000px rgb(0 0 0 / 30%);
+            box-shadow: inset 0 0 0 1000px rgb(0 0 0 / 20%);
         }
 
     .mainNewsInfo {
@@ -291,7 +301,7 @@
 
     .containerNews {
         width: 100%;
-        height: 25vh;
+        height: 28vh;
         margin-top: 2vmin;
         display: flex;
         flex-direction: row;
@@ -328,7 +338,7 @@
     }
 
         .newsInside:hover {
-            box-shadow: inset 0 0 0 1000px rgb(0 0 0 / 30%);
+            box-shadow: inset 0 0 0 1000px rgb(0 0 0 / 20%);
         }
 
     .newsInfo {
@@ -535,14 +545,15 @@
     </div>
 
     <div class="championship">
-        <div id="sectionCampionato" class="cursorClick hoverOrange itemWithSubmenu">
+        @*<div id="sectionCampionato" class="cursorClick hoverOrange itemWithSubmenu">
             Prima divisione maschile <i class="bi bi-caret-down-fill"></i>
         </div>
 
         <div id="submenuCampionato" class="submenuChampionship cursorClick" style="display: none;">
             <div class="submenuItem">Prima divisione maschile</div>
             <div class="submenuItem noBorder">PGS libera femminile</div>
-        </div>
+        </div>*@
+            <img src="~/Images/logoMain.png" class="champLogo" />
     </div>
 
     <div class="match matchNext">
@@ -564,7 +575,7 @@
 <div class="separator"></div>
 
 <div class="mainNewsEsterno">
-    <div class="mainNews sizeMedium cursorClick">
+    <div class="mainNews sizeMedium cursorClick" onclick="apriNews(0)">
         <div class="mainNewsInside" style="background-image: url(../../Images/@myMainCard.immagine); background-size: cover;">
             <div class="mainNewsInfo">
                 <div class="mainNewsTags">

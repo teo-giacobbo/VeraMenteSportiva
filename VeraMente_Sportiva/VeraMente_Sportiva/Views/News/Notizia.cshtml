@@ -1,0 +1,159 @@
+﻿@using VeraMente_Sportiva.Models
+
+@model CardNews
+
+<script>
+
+    $(document).ready(function () {
+        focusSection("News");
+    });
+
+</script>
+
+<style>
+    .newsInfo {
+        animation: 1s ease-out 0s 1 slideFromLeft;
+    }
+
+    .newsTags {
+        width: 25%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        margin: 0 auto;
+        margin-bottom: 2vmin;
+    }
+
+    .tag {
+        color: var(--light);
+        background-color: var(--orange);
+        padding: 3px 10px;
+        opacity: 0.9;
+        border-radius: 1vmin;
+    }
+
+    .titleNews {
+        margin-bottom: 2vmin;
+        width: 100%;
+        text-align: center;
+        font-size: 40px;
+    }
+
+    .dataNews {
+        margin-bottom: 3vmin;
+        width: 100%;
+        text-align: center;
+    }
+
+    .mainImg {
+        width: 50%;
+        height: auto;
+        float: left;
+        margin-right: 2vmin;
+        margin-bottom: 1vmin;
+        animation: 1s ease-out 0s 1 slideFromLeft;
+    }
+
+    .mainText {
+        text-align: justify;
+        animation: 0.7s ease-out 0s 1 slideFromRight;
+    }
+
+    /* Smartphones Portrait */
+    @@media (min-width: 320px) and (max-width: 480px) {
+        .titleSectionSociety {
+            font-size: 20px !important;
+        }
+
+        .mainImg {
+            width: 100%;
+        }
+
+        .mainText {
+            font-size: 14px !important;
+            text-align: justify !important;
+        }
+    }
+
+    /* Smartphones Landscape */
+    @@media (min-width: 481px) and (max-width: 767px) {
+        .titleSectionSociety {
+            font-size: 20px !important;
+        }
+
+        .mainImg {
+            width: 50%;
+        }
+
+        .mainText {
+            font-size: 14px !important;
+            text-align: justify !important;
+        }
+    }
+
+    /* Tablet Landscape */
+    @@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+        .titleSectionSociety {
+            font-size: 20px !important;
+        }
+
+        .mainImg {
+            width: 40%;
+        }
+
+        .mainText {
+            font-size: 16px !important;
+            text-align: justify !important;
+        }
+    }
+</style>
+
+<div class="newsInfo">
+    <div class="newsTags">
+        @foreach (var item in Model.tags)
+        {
+            <div class="tag sizeSmallNormal weight500" title="@item">@item</div>
+        }
+    </div>
+
+    <div class="titleNews weight900">
+        @Model.titolo
+    </div>
+
+    <div class="dataNews sizeNormal weight300">
+        @Model.dataPubblicazione.ToString("dddd dd/MM/yyyy").ToUpper()
+    </div>
+</div>
+
+
+<div class="mainText sizeMediumSmall weight300">
+    <img class="mainImg" src="~/Images/test.jpg" />
+
+    <span>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec molestie, purus quis ultrices scelerisque, tellus dolor ultricies dui,
+        non rhoncus nisl nibh vel massa. Nam ac convallis lacus, nec elementum justo. Curabitur eu fringilla massa. Sed in lacinia arcu. Nullam
+        eu purus ut leo pellentesque maximus at vel lectus. Sed in magna purus. Vestibulum nec consequat dolor, non sagittis justo. Integer quam
+        massa, aliquam egestas felis non, congue convallis eros. Cras efficitur, magna et varius ultricies, orci sapien consectetur neque, ut
+        convallis dui ligula ut ligula. Suspendisse consequat in velit fringilla consequat. Pellentesque habitant morbi tristique senectus et
+        netus et malesuada fames ac turpis egestas. Aliquam sit amet nisl turpis. Morbi est justo, dapibus et purus ac, semper placerat sem.
+        In at erat in leo finibus condimentum vel vitae turpis.
+        <br /><br />
+        Sed at dui in turpis tincidunt accumsan. Mauris efficitur ex tincidunt lectus laoreet fringilla. Nullam congue, justo vel semper tincidunt,
+        felis sapien aliquet enim, at eleifend augue lectus ut felis. Aliquam malesuada sagittis suscipit. Praesent dapibus, erat et tincidunt blandit,
+        erat eros laoreet libero, in viverra risus lacus at enim. Nulla malesuada augue ac tincidunt suscipit. Proin ultricies magna a libero finibus,
+        quis consequat nisi tincidunt.
+        <br /><br />
+        Sed venenatis auctor dictum. Integer varius venenatis tristique. Pellentesque habitant morbi tristique senectus et netus et malesuada fames
+        ac turpis egestas. Duis est sapien, convallis a urna in, pellentesque fringilla mauris. Nulla sollicitudin nulla at efficitur iaculis. Cras
+        sagittis erat sed sem iaculis, id sodales nulla ornare. Quisque accumsan vulputate magna in vehicula. Curabitur quis elit orci.
+        <br /><br />
+        Cras est odio, auctor quis auctor quis, commodo in purus. Mauris blandit arcu elit, vel consequat eros eleifend porttitor. Aliquam erat volutpat.
+        Vestibulum at felis purus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Suspendisse potenti. Mauris
+        elit diam, iaculis nec aliquam id, rutrum a ex. Integer venenatis magna et quam sollicitudin, in condimentum odio sollicitudin.
+        <br /><br />
+        In tincidunt sagittis urna, eu molestie lacus porttitor quis. Aliquam non volutpat nisl. Sed congue velit nec nulla rutrum, at tempor ante finibus.
+        Vestibulum tempus metus sem, ac accumsan felis iaculis ac. Suspendisse potenti. Ut quis est maximus, scelerisque elit tempor, vulputate mi. Aliquam
+        erat volutpat. Vestibulum eros urna, iaculis et quam at, tincidunt tristique orci. Nam maximus elit eget nibh molestie, quis molestie urna rutrum.
+    </span>
+</div>

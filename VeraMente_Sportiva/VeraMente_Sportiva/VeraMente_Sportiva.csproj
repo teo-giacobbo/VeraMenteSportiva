@@ -189,6 +189,7 @@
     <Content Include="Views\Campionati\Calendario.cshtml" />
     <Content Include="Views\Campionati\Classifica.cshtml" />
     <Content Include="Views\Campionati\Squadra.cshtml" />
+    <Content Include="Views\News\Notizia.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

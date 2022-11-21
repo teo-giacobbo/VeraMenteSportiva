@@ -1,4 +1,11 @@
-﻿
+﻿@using VeraMente_Sportiva.Models
+
+@model List<CardNews>
+
+@{ 
+    CardNews myMainCard = ViewBag.MainNews;
+}
+
 <script>
 
     $(document).ready(function () {
@@ -10,17 +17,89 @@
 <style>
     .mainNews {
         width: 100%;
-        height: 45vh;
-        background-color: var(--bg-secondary-color);
+        height: 63vh;
         -webkit-box-shadow: 0 8px 12px -4px var(--text-shadow);
         box-shadow: 0 8px 12px -4px var(--text-shadow);
         border-radius: 1vmin;
-        padding: 10px;
+        overflow: hidden;
+        animation: 0.7s ease-out 0s 1 slideFromLeft;
+    }
+
+    .mainNewsInside {
+        width: 100%;
+        height: 100%;
+        padding: 10px 30px 20px 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        overflow: hidden;
+        box-shadow: inset 0 0 0 1000px rgb(0 0 0 / 50%);
+        transition: all 0.2s;
+        animation: fadein 0.2s;
+    }
+
+        .mainNewsInside:hover {
+            box-shadow: inset 0 0 0 1000px rgb(0 0 0 / 30%);
+        }
+
+    .mainNewsInfo {
+        width: 100%;
+        height: 10%;
         display: flex;
         flex-direction: row;
-        justify-content: center;
+        justify-content: space-between;
         align-items: center;
-        animation: 0.7s ease-out 0s 1 slideFromLeft;
+    }
+
+    .mainNewsTags {
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    .tagMainNews {
+        color: var(--light);
+        background-color: var(--orange);
+        padding: 3px 10px;
+        opacity: 0.9;
+        margin-right: 2vmin;
+        border-radius: 1vmin;
+    }
+
+    .mainNewsDate {
+        height: 100%;
+        display: flex;
+        color: var(--light);
+        opacity: 0.7;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        font-style: italic;
+    }
+
+    .mainNewsContent {
+        width: 100%;
+        max-height: 40%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+
+    .mainNewsTitle {
+        width: 100%;
+        height: 30%;
+        font-size: 40px;
+        color: var(--light);
+    }
+
+    .mainNewsPreview {
+        width: 100%;
+        height: 70%;
+        color: var(--light);
+        overflow: hidden;
     }
 
     .containerNews {
@@ -36,17 +115,91 @@
 
     .news {
         width: 32%;
-        height: 22vh;
+        height: 28vh;
         background-color: var(--bg-secondary-color);
         -webkit-box-shadow: 0 8px 12px -4px var(--text-shadow);
         box-shadow: 0 8px 12px -4px var(--text-shadow);
         border-radius: 1vmin;
-        padding: 10px;
         display: flex;
         flex-direction: row;
-        justify-content: center;
-        align-items: center;
+        justify-content: space-between;
+        overflow: hidden;
         margin-bottom: 2vmin;
+    }
+
+    .newsInside {
+        width: 100%;
+        height: 100%;
+        padding: 10px 30px 20px 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        overflow: hidden;
+        box-shadow: inset 0 0 0 1000px rgb(0 0 0 / 50%);
+        transition: all 0.2s;
+        animation: fadein 0.2s;
+    }
+
+        .newsInside:hover {
+            box-shadow: inset 0 0 0 1000px rgb(0 0 0 / 30%);
+        }
+
+    .newsInfo {
+        width: 100%;
+        height: 10%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .newsTags {
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    .tagNews {
+        color: var(--light);
+        background-color: var(--orange);
+        padding: 3px 10px;
+        opacity: 0.9;
+        margin-right: 2vmin;
+        border-radius: 1vmin;
+    }
+
+    .newsDate {
+        height: 100%;
+        display: flex;
+        color: var(--light);
+        opacity: 0.7;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        font-style: italic;
+    }
+
+    .newsContent {
+        width: 100%;
+        max-height: 40%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+
+    .newsTitle {
+        width: 100%;
+        color: var(--light);
+    }
+
+    .newsPreview {
+        width: 100%;
+        height: 70%;
+        color: var(--light);
+        overflow: hidden;
     }
 
     .moreNews {
@@ -113,15 +266,52 @@
     }
 </style>
 
-<div class="mainNews hoverBorderOrange">
-    <div>ULTIMA NEWS</div>
+<div class="mainNews sizeMedium cursorClick">
+    <div class="mainNewsInside" style="background-image: url(../../Images/@myMainCard.immagine); background-size: cover;">
+        <div class="mainNewsInfo">
+            <div class="mainNewsTags">
+                @foreach (var item in myMainCard.tags)
+                {
+                    <div class="tagMainNews sizeMediumSmall weight500">@item</div>
+                }
+            </div>
+            <div class="mainNewsDate sizeMediumSmall weight500">
+                <div>@myMainCard.dataPubblicazione.ToString("dd/MM/yyyy")</div>
+            </div>
+        </div>
+        <div class="mainNewsContent">
+            <div class="mainNewsTitle weight900">
+                <div>@myMainCard.titolo</div>
+            </div>
+            <div class="mainNewsPreview sizeMedium weight300">
+                <div>@myMainCard.contenuto</div>
+            </div>
+        </div>
+    </div>
 </div>
 
 <div class="containerNews">
-    @for (int i = 0; i < 12; i++)
+    @foreach (var item in Model)
     {
-        <div class="news hoverBorderOrange">
-            <div>NEWS</div>
+        <div class="news cursorClick">
+            <div class="newsInside" style="background-image: url(../../Images/@item.immagine); background-size: cover;">
+                <div class="newsInfo">
+                    <div class="newsTags">
+                        @foreach (var tag in item.tags)
+                        {
+                            <div class="tagNews sizeSmallNormal weight500">@tag</div>
+                        }
+                    </div>
+                    <div class="newsDate sizeSmallNormal weight500">
+                        <div>@item.dataPubblicazione.ToString("dd/MM/yyyy")</div>
+                    </div>
+                </div>
+                <div class="newsContent">
+                    <div class="newsTitle sizeMedium weight900">
+                        <div>@item.titolo</div>
+                    </div>
+                </div>
+            </div>
         </div>
     }
 </div>
