@@ -14,7 +14,7 @@
     --dark: #08285A;
     --orange: #DE761B;
     --orange-transparent: rgba(222, 118, 27, 0.4);
-    --orange-vuoto: rgba(222, 118, 27, 0.1);
+    --orange-vuoto: rgba(222, 118, 27, 0.3);
     --bg-shadow: rgba(250, 250, 250, 0.2);
     --text-shadow: rgba(8, 40, 90, 0.2);
 }
@@ -34,7 +34,7 @@
     --dark: #303030;
     --orange: #DE761B;
     --orange-transparent: rgba(222, 118, 27, 0.4);
-    --orange-vuoto: rgba(222, 118, 27, 0.1);
+    --orange-vuoto: rgba(222, 118, 27, 0.3);
     --bg-shadow: rgba(250, 250, 250, 0.2);
     --text-shadow: rgba(8, 40, 90, 0.2);
 }

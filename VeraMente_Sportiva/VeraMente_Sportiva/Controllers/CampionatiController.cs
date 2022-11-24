@@ -12,9 +12,10 @@ namespace VeraMente_Sportiva.Controllers
 {
     public class CampionatiController : Controller
     {
-        public ActionResult Index(string campionato)
+        public ActionResult Index(string campionato, string sezione = "Squadra")
         {
             ViewBag.Campionato = campionato;
+            ViewBag.Sezione = sezione;
             return View();
         }
 

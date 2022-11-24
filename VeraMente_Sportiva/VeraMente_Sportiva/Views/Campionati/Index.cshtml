@@ -2,7 +2,7 @@
 
     $(document).ready(function () {
         focusSection("Campionati");
-        attivaLoading();
+        apriSezioneSquadra("@ViewBag.Sezione");
     });
 
     function apriSezioneSquadra(sezione) {
@@ -111,5 +111,5 @@
 </div>
 
 <div id="mainInfoTeam" class="mainInfoTeam">
-    @Html.Action("Squadra", "Campionati", new { campionato = ViewBag.Campionato })
+    
 </div>
