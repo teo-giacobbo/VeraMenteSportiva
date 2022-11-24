@@ -7,6 +7,8 @@
     CardNews myMainCard = ViewBag.MainNews;
     List<ClassificaViewModel> listaSquadreClassifica = ViewBag.ListaSquadreClassifica;
     List<CardNews> listaNews = ViewBag.ListaNews;
+
+    int count = 1;
 }
 
 <script>
@@ -441,70 +443,68 @@
         }
 
         .mainNews {
-            height: 40vh;
-        }
-
-        .containerNews {
-            margin-top: 3vmin;
-            height: auto;
-            flex-wrap: wrap;
-        }
-
-        .news {
-            width: 100%;
-            height: 40vmin;
-            margin-bottom: 3vmin;
-        }
-    }
-
-    /* Smartphones Landscape */
-    @@media (min-width: 481px) and (max-width: 767px) {
-        .matchPrev {
-            display: none;
-        }
-
-        .championship {
-            display: none;
-        }
-
-        .matchNext {
             width: 100%;
         }
 
-        .match {
-            padding: 2px;
+        .mainNewsInside {
+            padding: 5px 15px 10px 15px;
+            box-shadow: inset 0 0 0 1000px rgb(0 0 0 / 40%);
         }
 
-        .matchDetails {
-            width: 100%;
+        .tagMainNews {
+            margin-right: 2vmin;
+            font-size: 10px !important;
         }
 
-        .score .sizeMediumBig {
-            font-size: 16px !important;
+        .mainNewsDate {
+            font-size: 10px !important;
         }
 
-        .matchTitle {
-            font-size: 12px !important;
+        .mainNewsTitle {
+            height: 40%;
+            font-size: 22px;
         }
 
-        .team .sizeMedium {
+        .mainNewsPreview {
+            height: 60%;
             font-size: 13px;
         }
 
-        .mainNews {
-            height: 65vh;
+        .classifica {
+            display: none;
         }
 
         .containerNews {
             height: auto;
-            flex-wrap: wrap;
-            display: none;
+            margin-top: 4vmin;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
         }
 
         .news {
             width: 100%;
-            height: 30vmin;
-            margin-bottom: 2vmin;
+            height: 33vh;
+            margin-bottom: 4vmin;
+        }
+
+        .newsInside {
+            padding: 5px 15px 10px 15px;
+            box-shadow: inset 0 0 0 1000px rgb(0 0 0 / 40%);
+        }
+
+        .newsInfo {
+            height: 15%;
+        }
+
+        .tagNews {
+            margin-right: 2vmin;
+            font-size: 10px !important;
+        }
+
+        .newsDate {
+            font-size: 10px !important;
         }
     }
 
@@ -524,6 +524,178 @@
 
         .mainNews {
             height: 58vh;
+        }
+
+        .mainNews {
+            width: 70%;
+        }
+
+        .classifica {
+            width: 29%;
+        }
+
+        .classificaTitle {
+            height: 7%;
+        }
+
+        .squadraTable {
+            padding-left: 3px;
+            font-size: 16px !important;
+        }
+
+        .numberTable {
+            font-size: 16px !important;
+        }
+
+        .mainNewsTitle {
+            height: 55%;
+            font-size: 30px;
+        }
+
+        .mainNewsPreview {
+            height: 45%;
+            font-size: 18px;
+        }
+
+        .containerNews {
+            width: 100%;
+            height: 35vh;
+            flex-wrap: wrap;
+        }
+
+        .news {
+            width: 48%;
+            height: 100%;
+        }
+
+        .lastNews {
+            display: none;
+        }
+
+        .newsInside {
+            padding: 5px 15px 15px 15px;
+            box-shadow: inset 0 0 0 1000px rgb(0 0 0 / 40%);
+        }
+
+        .newsInfo {
+            width: 100%;
+            height: 20%;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .newsTags {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+
+        .newsDate {
+            width: 100%;
+            height: 50%;
+            justify-content: center;
+        }
+    }
+
+    /* Small Laptop and Big Tablet Landscape */
+    @@media (min-width: 1025px) and (max-width: 1280px) {
+        .match {
+            padding: 7px;
+        }
+
+        .matchTitle {
+            font-size: 16px !important;
+        }
+
+        .score .sizeMediumBig {
+            font-size: 19px !important;
+        }
+
+        .team .sizeMedium {
+            font-size: 16px;
+        }
+
+        .mainNews {
+            height: 58vh;
+            width: 70%;
+        }
+
+        .classifica {
+            width: 29%;
+        }
+
+        .classificaTitle {
+            height: 7%;
+        }
+
+        .squadraTable {
+            padding-left: 3px;
+            font-size: 16px !important;
+        }
+
+        .numberTable {
+            font-size: 16px !important;
+        }
+
+        .mainNewsTitle {
+            height: 55%;
+            font-size: 30px;
+        }
+
+        .mainNewsPreview {
+            height: 45%;
+            font-size: 18px;
+        }
+
+        .containerNews {
+            width: 100%;
+            height: 35vh;
+            flex-wrap: wrap;
+        }
+
+        .news {
+            width: 48%;
+            height: 100%;
+        }
+
+        .lastNews {
+            display: none;
+        }
+
+        .newsInside {
+            padding: 5px 15px 15px 15px;
+            box-shadow: inset 0 0 0 1000px rgb(0 0 0 / 40%);
+        }
+
+        .newsInfo {
+            width: 100%;
+            height: 20%;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .newsTags {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+
+        .newsDate {
+            width: 100%;
+            height: 50%;
+            justify-content: center;
         }
     }
 </style>
@@ -546,14 +718,14 @@
 
     <div class="championship">
         @*<div id="sectionCampionato" class="cursorClick hoverOrange itemWithSubmenu">
-            Prima divisione maschile <i class="bi bi-caret-down-fill"></i>
-        </div>
+                Prima divisione maschile <i class="bi bi-caret-down-fill"></i>
+            </div>
 
-        <div id="submenuCampionato" class="submenuChampionship cursorClick" style="display: none;">
-            <div class="submenuItem">Prima divisione maschile</div>
-            <div class="submenuItem noBorder">PGS libera femminile</div>
-        </div>*@
-            <img src="~/Images/logoMain.png" class="champLogo" />
+            <div id="submenuCampionato" class="submenuChampionship cursorClick" style="display: none;">
+                <div class="submenuItem">Prima divisione maschile</div>
+                <div class="submenuItem noBorder">PGS libera femminile</div>
+            </div>*@
+        <img src="~/Images/logoMain.png" class="champLogo" />
     </div>
 
     <div class="match matchNext">
@@ -619,7 +791,7 @@
                         <td class="weight300 sizeMediumSmall squadraTable">
                             @item.squadra
                         </td>
-                        <td class="weight700 sizeMediumSmall centerText" style="width: 8%;">@item.punti</td>
+                        <td class="weight700 sizeMediumSmall centerText numberTable" style="width: 8%;">@item.punti</td>
                         <td class="weight300 centerText" style="width: 8%;">@item.giornate</td>
                     </tr>
                 }
@@ -632,7 +804,12 @@
 <div class="containerNews">
     @foreach (var item in listaNews)
     {
-        <div class="news cursorClick">
+        string lastNews = "";
+        if (count == listaNews.Count)
+        {
+            lastNews = "lastNews";
+        }
+        <div class="news cursorClick @lastNews">
             <div class="newsInside" style="background-image: url(../../Images/@item.immagine); background-size: cover;">
                 <div class="newsInfo">
                     <div class="newsTags">
@@ -652,6 +829,8 @@
                 </div>
             </div>
         </div>
+
+        count++;
     }
 
 </div>

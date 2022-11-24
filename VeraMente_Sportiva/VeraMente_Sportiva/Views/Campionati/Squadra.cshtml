@@ -156,33 +156,6 @@
         } 
     }
 
-    /* Smartphones Landscape */
-    @@media (min-width: 481px) and (max-width: 767px) {
-        .titleSectionTeam {
-            font-size: 20px !important;
-            text-align: center;
-            margin: 2vmin 0;
-        }
-
-        .player {
-            width: 49%;
-            height: 80vh;
-            margin: 2vmin auto;
-        }
-
-        .playerInfo {
-            padding: 0 4vmin;
-        }
-
-        .captain {
-            height: 2vmin;
-        }
-
-        .playerNumber .sizeBig {
-            font-size: 30px !important;
-        }
-    }
-
     /* Tablet Landscape */
     @@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
         .titleSectionTeam {
@@ -212,6 +185,38 @@
 
         .staffName .sizeMediumSmall, .playerName .sizeMediumSmall {
             font-size: 16px;
+        }
+    }
+
+    /* Small Laptop and Big Tablet Landscape */
+    @@media (min-width: 1025px) and (max-width: 1280px) {
+        .titleSectionTeam {
+            font-size: 20px !important;
+        }
+
+        .player {
+            width: 30%;
+            height: 50vh;
+        }
+
+        .playerInfo {
+            padding: 0 2vmin;
+        }
+
+        .captain {
+            height: 1vmin;
+        }
+
+        .playerNumber .sizeBig {
+            font-size: 30px !important;
+        }
+
+        .staffName .sizeMedium, .playerName .sizeMedium {
+            font-size: 20px;
+        }
+
+        .staffName .sizeMediumSmall, .playerName .sizeMediumSmall {
+            font-size: 18px;
         }
     }
 </style>
