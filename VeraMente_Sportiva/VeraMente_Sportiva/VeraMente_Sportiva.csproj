@@ -153,6 +153,7 @@
     <Content Include="Images\news2.jpg" />
     <Content Include="Images\news3.jpg" />
     <Content Include="Images\playerPlaceholder.png" />
+    <Content Include="Images\senzaNome.png" />
     <Content Include="Images\staffPlaceholder.png" />
     <Content Include="Images\test.jpg" />
     <Content Include="Scripts\bootstrap.js" />
