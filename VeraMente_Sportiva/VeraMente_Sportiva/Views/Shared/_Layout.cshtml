@@ -6,6 +6,16 @@
     <title>VeraMente Sportiva A.s.d</title>
     <link rel="icon" href="~/Images/iconLayout.png" type="image/x-icon" />
 
+    @*MANIFEST PWA*@
+    <link rel="manifest" href="~/manifest.json" />
+    <meta name="theme-color" content="#08285A">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="~/Content/icons/icon-apple.png">
+
+    <meta name="apple-mobile-web-app-title" content="VMS">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
     <link rel="stylesheet" href="~/Content/bootstrap.min.css" />
 
     <script src="~/Scripts/jquery-3.4.1.min.js"></script>
@@ -361,6 +371,12 @@
                 $("body").removeClass("nascondiOverflow");
                 $("#menuMobile").hide();
             }
+        }
+
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker
+                .register('/serviceworker.js')
+                .then(function () { console.log('Service Worker Registered'); });
         }
     </script>
 </body>

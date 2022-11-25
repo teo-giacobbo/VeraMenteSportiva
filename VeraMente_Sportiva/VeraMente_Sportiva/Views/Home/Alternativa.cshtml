@@ -1,0 +1,816 @@
+﻿@using VeraMente_Sportiva.Models
+
+@{
+    CalendarioViewModel ultimaPartita = ViewBag.UltimaPartita;
+    CalendarioViewModel prossimaPartita = ViewBag.ProssimaPartita;
+
+    CardNews myMainCard = ViewBag.MainNews;
+    List<ClassificaViewModel> listaSquadreClassifica = ViewBag.ListaSquadreClassifica;
+    List<CardNews> listaNews = ViewBag.ListaNews;
+
+    int count = 1;
+}
+
+<script>
+
+    $(document).ready(function () {
+        focusSection("Home");
+
+        $("#sectionCampionato").mouseover(function () {
+            checkSubmenuCampionato(1);
+        });
+
+        $("#sectionCampionato").mouseout(function () {
+            checkSubmenuCampionato(0);
+        });
+
+        $("#submenuCampionato").mouseover(function () {
+            checkSubmenuCampionato(1)
+        });
+
+        $("#submenuCampionato").mouseout(function () {
+            checkSubmenuCampionato(0)
+        });
+    });
+
+    var check = "";
+    function checkSubmenuCampionato(isEnter) {
+        if (isEnter == 1) {
+            $("#submenuCampionato").show();
+            check = "Championship";
+        } else {
+            check = "";
+            setTimeout(function () {
+                if (check == "") {
+                    $("#submenuCampionato").hide();
+                }
+            }, 100);
+        }
+    }
+
+    function apriNews(newsID) {
+        attivaLoading();
+        window.location.href = "../News/Notizia?newsID=" + newsID;
+    }
+
+</script>
+
+<style>
+    .containerMatches {
+        width: 100%;
+        height: 13vh;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    .match {
+        width: 40%;
+        height: 90%;
+        background-color: var(--orange-vuoto);
+        -webkit-box-shadow: 0 8px 12px -4px var(--text-shadow);
+        box-shadow: 0 8px 12px -4px var(--text-shadow);
+        border-radius: 1vmin;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        border: 2px solid var(--orange);
+    }
+
+    .championship {
+        width: 20%;
+        height: 90%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+    }
+
+        .championship div {
+            text-align: center;
+        }
+
+    .champLogo {
+        height: 100%;
+        width: auto;
+    }
+
+    .submenuChampionship {
+        position: absolute;
+        top: 62%;
+        width: 200px;
+        color: var(--bg-color);
+        background: var(--text-color);
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        border-radius: 5px;
+        border: 1px solid var(--bg-color);
+        z-index: 100;
+    }
+
+    .matchPrev {
+        width: 40%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        animation: 0.7s ease-out 0s 1 slideFromLeft;
+    }
+
+    .matchNext {
+        width: 40%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        animation: 0.7s ease-out 0s 1 slideFromRight;
+    }
+
+    .matchTitle {
+        font-size: 65px !important;
+        letter-spacing: 15px !important;
+    }
+
+    .titleMobile {
+        display: none;
+    }
+
+    .matchDetails {
+        height: 70%;
+        width: 90%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .score {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+
+        .score div {
+            text-align: center;
+            font-weight: bold;
+        }
+
+    .team {
+        width: 40%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+
+        .team div {
+            text-align: center;
+        }
+
+    .separator {
+        width: 100%;
+        height: 2px;
+        background-color: var(--text-color);
+        margin: 1.5vmin 0;
+    }
+
+    .mainNewsEsterno {
+        width: 100%;
+        height: 63vh;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .mainNews {
+        width: 100%;
+        height: 100%;
+        -webkit-box-shadow: 0 8px 12px -4px var(--text-shadow);
+        box-shadow: 0 8px 12px -4px var(--text-shadow);
+        border-radius: 1vmin;
+        overflow: hidden;
+        animation: 0.7s ease-out 0s 1 slideFromLeft;
+    }
+
+    .mainNewsInside {
+        width: 100%;
+        height: 100%;
+        padding: 10px 30px 20px 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        overflow: hidden;
+        box-shadow: inset 0 0 0 1000px rgb(0 0 0 / 50%);
+        transition: all 0.2s;
+        animation: fadein 0.2s;
+    }
+
+        .mainNewsInside:hover {
+            box-shadow: inset 0 0 0 1000px rgb(0 0 0 / 20%);
+        }
+
+    .mainNewsInfo {
+        width: 100%;
+        height: 10%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .mainNewsTags {
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    .tagMainNews {
+        color: var(--light);
+        background-color: var(--orange);
+        padding: 3px 10px;
+        opacity: 0.9;
+        margin-right: 2vmin;
+        border-radius: 1vmin;
+    }
+
+    .mainNewsDate {
+        height: 100%;
+        display: flex;
+        color: var(--light);
+        opacity: 0.7;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        font-style: italic;
+    }
+
+    .mainNewsContent {
+        width: 100%;
+        max-height: 40%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+
+    .mainNewsTitle {
+        width: 100%;
+        height: 30%;
+        font-size: 40px;
+        color: var(--light);
+    }
+
+    .mainNewsPreview {
+        width: 100%;
+        height: 70%;
+        color: var(--light);
+        overflow: hidden;
+    }
+
+    .classifica {
+        width: 24%;
+        height: 100%;
+        animation: 0.7s ease-out 0s 1 slideFromRight;
+    }
+
+    .classificaTitle {
+        width: 100%;
+        height: 10%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .classificaBody {
+        width: 100%;
+        height: 90%;
+    }
+
+    .classificaTeam {
+        width: 100%;
+        border-bottom: 1px solid var(--bg-secondary-color);
+    }
+
+    .tableSchedule {
+        width: 100%;
+        height: 100%;
+    }
+
+    .squadraTable {
+        padding-left: 3px;
+    }
+
+    .nextMatch {
+        background-color: var(--orange) !important;
+        color: var(--text-color);
+        padding-left: 5px !important;
+    }
+
+    .containerNews {
+        width: 100%;
+        height: 28vh;
+        margin-top: 2vmin;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        animation: 0.7s ease-out 0s 1 slideFromRight;
+    }
+
+    .news {
+        width: 32%;
+        height: 100%;
+        background-color: var(--bg-secondary-color);
+        -webkit-box-shadow: 0 8px 12px -4px var(--text-shadow);
+        box-shadow: 0 8px 12px -4px var(--text-shadow);
+        border-radius: 1vmin;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        overflow: hidden;
+    }
+
+    .newsInside {
+        width: 100%;
+        height: 100%;
+        padding: 10px 30px 20px 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        overflow: hidden;
+        box-shadow: inset 0 0 0 1000px rgb(0 0 0 / 50%);
+        transition: all 0.2s;
+        animation: fadein 0.2s;
+    }
+
+        .newsInside:hover {
+            box-shadow: inset 0 0 0 1000px rgb(0 0 0 / 20%);
+        }
+
+    .newsInfo {
+        width: 100%;
+        height: 10%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .newsTags {
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    .tagNews {
+        color: var(--light);
+        background-color: var(--orange);
+        padding: 3px 10px;
+        opacity: 0.9;
+        margin-right: 2vmin;
+        border-radius: 1vmin;
+    }
+
+    .newsDate {
+        height: 100%;
+        display: flex;
+        color: var(--light);
+        opacity: 0.7;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        font-style: italic;
+    }
+
+    .newsContent {
+        width: 100%;
+        max-height: 40%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+
+    .newsTitle {
+        width: 100%;
+        color: var(--light);
+    }
+
+    .newsPreview {
+        width: 100%;
+        height: 70%;
+        color: var(--light);
+        overflow: hidden;
+    }
+
+    .moreNews {
+        width: 100%;
+        height: 2%;
+        margin-top: 3vmin;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        text-decoration: underline;
+        animation: 0.7s ease-out 0s 1 slideFromRight;
+    }
+
+    /* Smartphones Portrait */
+    @@media (min-width: 320px) and (max-width: 480px) {
+        .matchPrev {
+            display: none;
+        }
+
+        .championship {
+            display: none;
+        }
+
+        .matchNext, .matchPrev, .championship {
+            display: none;
+        }
+
+        .titleMobile {
+            display: block;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .matchTitle {
+            font-size: 25px !important;
+            text-align: center;
+            letter-spacing: 15px !important;
+        }
+
+        .match {
+            padding: 2px;
+        }
+
+        .matchDetails {
+            width: 100%;
+        }
+
+        .team .sizeMedium {
+            font-size: 13px;
+        }
+
+        .mainNews {
+            width: 100%;
+        }
+
+        .mainNewsInside {
+            padding: 5px 15px 10px 15px;
+            box-shadow: inset 0 0 0 1000px rgb(0 0 0 / 40%);
+        }
+
+        .tagMainNews {
+            margin-right: 2vmin;
+            font-size: 10px !important;
+        }
+
+        .mainNewsDate {
+            font-size: 10px !important;
+        }
+
+        .mainNewsTitle {
+            height: 40%;
+            font-size: 22px;
+        }
+
+        .mainNewsPreview {
+            height: 60%;
+            font-size: 13px;
+        }
+
+        .classifica {
+            display: none;
+        }
+
+        .containerNews {
+            height: auto;
+            margin-top: 4vmin;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+        }
+
+        .news {
+            width: 100%;
+            height: 33vh;
+            margin-bottom: 4vmin;
+        }
+
+        .newsInside {
+            padding: 5px 15px 10px 15px;
+            box-shadow: inset 0 0 0 1000px rgb(0 0 0 / 40%);
+        }
+
+        .newsInfo {
+            height: 15%;
+        }
+
+        .tagNews {
+            margin-right: 2vmin;
+            font-size: 10px !important;
+        }
+
+        .newsDate {
+            font-size: 10px !important;
+        }
+    }
+
+    /* Tablet Landscape */
+    @@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+        .matchTitle {
+            font-size: 35px !important;
+            letter-spacing: 15px !important;
+        }
+
+        .score .sizeMediumBig {
+            font-size: 16px !important;
+        }
+
+        .team .sizeMedium {
+            font-size: 13px;
+        }
+
+        .mainNews {
+            height: 58vh;
+        }
+
+        .mainNews {
+            width: 100%;
+        }
+
+        .classifica {
+            width: 29%;
+        }
+
+        .classificaTitle {
+            height: 7%;
+        }
+
+        .squadraTable {
+            padding-left: 3px;
+            font-size: 16px !important;
+        }
+
+        .numberTable {
+            font-size: 16px !important;
+        }
+
+        .mainNewsTitle {
+            height: 55%;
+            font-size: 30px;
+        }
+
+        .mainNewsPreview {
+            height: 45%;
+            font-size: 18px;
+        }
+
+        .containerNews {
+            width: 100%;
+            height: 35vh;
+            flex-wrap: wrap;
+        }
+
+        .news {
+            width: 48%;
+            height: 100%;
+        }
+
+        .lastNews {
+            display: none;
+        }
+
+        .newsInside {
+            padding: 5px 15px 15px 15px;
+            box-shadow: inset 0 0 0 1000px rgb(0 0 0 / 40%);
+        }
+
+        .newsInfo {
+            width: 100%;
+            height: 20%;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .newsTags {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+
+        .newsDate {
+            width: 100%;
+            height: 50%;
+            justify-content: center;
+        }
+    }
+
+    /* Small Laptop and Big Tablet Landscape */
+    @@media (min-width: 1025px) and (max-width: 1280px) {
+        .match {
+            padding: 7px;
+        }
+
+        .matchTitle {
+            font-size: 45px !important;
+            letter-spacing: 15px !important;
+        }
+
+        .score .sizeMediumBig {
+            font-size: 19px !important;
+        }
+
+        .team .sizeMedium {
+            font-size: 16px;
+        }
+
+        .mainNews {
+            height: 58vh;
+            width: 100%;
+        }
+
+        .classifica {
+            width: 29%;
+        }
+
+        .classificaTitle {
+            height: 7%;
+        }
+
+        .squadraTable {
+            padding-left: 3px;
+            font-size: 16px !important;
+        }
+
+        .numberTable {
+            font-size: 16px !important;
+        }
+
+        .mainNewsTitle {
+            height: 55%;
+            font-size: 30px;
+        }
+
+        .mainNewsPreview {
+            height: 45%;
+            font-size: 18px;
+        }
+
+        .containerNews {
+            width: 100%;
+            height: 35vh;
+            flex-wrap: wrap;
+        }
+
+        .news {
+            width: 48%;
+            height: 100%;
+        }
+
+        .lastNews {
+            display: none;
+        }
+
+        .newsInside {
+            padding: 5px 15px 15px 15px;
+            box-shadow: inset 0 0 0 1000px rgb(0 0 0 / 40%);
+        }
+
+        .newsInfo {
+            width: 100%;
+            height: 20%;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .newsTags {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+
+        .newsDate {
+            width: 100%;
+            height: 50%;
+            justify-content: center;
+        }
+    }
+</style>
+
+<div class="containerMatches">
+    <div class="matchPrev">
+        <div class="matchTitle weight900"><span class="orange">V</span>era<span class="orange">M</span>ente</div>
+    </div>
+
+    <div class="championship">
+        <img src="~/Images/logoMain.png" class="champLogo" />
+    </div>
+
+    <div class="matchNext">
+        <div class="matchTitle weight900"><span class="orange">S</span>portiva</div>
+    </div>
+
+    <div class="titleMobile">
+        <div class="matchTitle weight900"><span class="orange">V</span>era<span class="orange">M</span>ente <span class="orange">S</span>portiva</div>
+    </div>
+</div>
+
+<div class="separator"></div>
+
+<div class="mainNewsEsterno">
+    <div class="mainNews sizeMedium cursorClick" onclick="apriNews(0)">
+        <div class="mainNewsInside" style="background-image: url(../../Images/@myMainCard.immagine); background-size: cover;">
+            <div class="mainNewsInfo">
+                <div class="mainNewsTags">
+                    @foreach (var item in myMainCard.tags)
+                    {
+                        <div class="tagMainNews sizeMediumSmall weight500">@item</div>
+                    }
+                </div>
+                <div class="mainNewsDate sizeMediumSmall weight500">
+                    <div>@myMainCard.dataPubblicazione.ToString("dd/MM/yyyy")</div>
+                </div>
+            </div>
+            <div class="mainNewsContent">
+                <div class="mainNewsTitle weight900">
+                    <div>@myMainCard.titolo</div>
+                </div>
+                <div class="mainNewsPreview sizeMedium weight300">
+                    <div>@myMainCard.contenuto</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="containerNews">
+    @foreach (var item in listaNews)
+    {
+        string lastNews = "";
+        if (count == listaNews.Count)
+        {
+            lastNews = "lastNews";
+        }
+        <div class="news cursorClick @lastNews">
+            <div class="newsInside" style="background-image: url(../../Images/@item.immagine); background-size: cover;">
+                <div class="newsInfo">
+                    <div class="newsTags">
+                        @foreach (var tag in item.tags)
+                        {
+                            <div class="tagNews sizeSmallNormal weight500">@tag</div>
+                        }
+                    </div>
+                    <div class="newsDate sizeSmallNormal weight500">
+                        <div>@item.dataPubblicazione.ToString("dd/MM/yyyy")</div>
+                    </div>
+                </div>
+                <div class="newsContent">
+                    <div class="newsTitle sizeMedium weight900">
+                        <div>@item.titolo</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        count++;
+    }
+
+</div>
+
+<div class="moreNews sizeMediumSmall cursorClick hoverOrange" onclick="apriSezione('News')">
+    Visualizza altre news
+</div>
+

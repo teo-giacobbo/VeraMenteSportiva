@@ -126,6 +126,7 @@
     <Compile Include="Controllers\CampionatiController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
+    <Compile Include="Controllers\OfflineController.cs" />
     <Compile Include="Controllers\SocietaController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -142,6 +143,15 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\icons\icon-128x128.png" />
+    <Content Include="Content\icons\icon-144x144.png" />
+    <Content Include="Content\icons\icon-152x152.png" />
+    <Content Include="Content\icons\icon-192x192.png" />
+    <Content Include="Content\icons\icon-384x384.png" />
+    <Content Include="Content\icons\icon-512x512.png" />
+    <Content Include="Content\icons\icon-72x72.png" />
+    <Content Include="Content\icons\icon-96x96.png" />
+    <Content Include="Content\icons\icon-apple.png" />
     <Content Include="Content\loading.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -158,6 +168,7 @@
     <Content Include="Images\test.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="manifest.json" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -169,6 +180,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="serviceworker.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -191,6 +203,8 @@
     <Content Include="Views\Campionati\Classifica.cshtml" />
     <Content Include="Views\Campionati\Squadra.cshtml" />
     <Content Include="Views\News\Notizia.cshtml" />
+    <Content Include="Views\Home\Alternativa.cshtml" />
+    <Content Include="Views\Offline\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
